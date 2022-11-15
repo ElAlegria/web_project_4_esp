@@ -1,0 +1,20 @@
+.page{
+    width: 100%;
+}
+
+@media screen and (min-width:590px) {
+    .page{
+        width: 600px;
+    }
+}
+
+@media screen and (min-width:880px) {
+    .page{
+        width:750px;
+    }
+}
+@media screen and (min-width:1280px) {
+    .page{
+        width: 880px;
+    }
+}

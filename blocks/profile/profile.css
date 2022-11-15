@@ -1,0 +1,8 @@
+.profile{
+    width: 282px;
+    margin: 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+}
