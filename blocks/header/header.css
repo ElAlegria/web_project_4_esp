@@ -5,23 +5,19 @@
     border-bottom: 1px solid #545454 ;
     position: relative;
 }
-@media screen and (min-width:600px) {
-    .header{
-        width: 600px;
-        min-height: 54px;
-    }
-}
+
+
 
 @media screen and (min-width:880px) {
     .header{
         width: 760px;
+        margin: 45px 0 0;
         min-height: 74px;
     }
 }
 
-@media screen and (min-width:1150px) {
+@media screen and (min-width:1160px) {
     .header{
         width: 880px;
-        min-height: 74px;
     }
 }

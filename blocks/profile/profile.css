@@ -1,8 +1,38 @@
 .profile{
-    width: 282px;
-    margin: 42px;
+    width: 100%;
+    margin: 42px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 26px;
+}
+
+@media screen and (min-width:620px) {
+    .profile{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+        "picture info info button-add"
+        "picture info info button-add";
+        row-gap: 26px;
+    }
+}
+
+@media screen and (min-width:630px) {
+    .profile{
+        width: 630px;
+    }
+}
+
+@media screen and (min-width:880px) {
+    .profile{
+        width: 700px;
+    }
+}
+
+@media screen and (min-width:1160px) {
+    .profile{
+        width: 880px;
+        gap:0;
+    }
 }
