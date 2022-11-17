@@ -1,0 +1,22 @@
+/* .footer{
+    width: 880px;
+} */
+
+@media screen and (min-width:680px) {
+    .footer{
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width:880px) {
+    .footer{
+        width: 760px;
+    }
+}
+
+@media screen and (min-width:1160px) {
+    .footer{
+        width: 880px;
+    }
+}
