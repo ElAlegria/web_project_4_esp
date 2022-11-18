@@ -27,5 +27,5 @@
 
 .profile__add-button:hover{
     opacity: 50%;
-    transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out .01s;
 }
