@@ -1,6 +1,6 @@
 .profile{
     width: 100%;
-    margin: 42px 0 0;
+    margin: 38px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,6 +9,7 @@
 
 @media screen and (min-width:620px) {
     .profile{
+        margin: 38px 0 0;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-areas:

@@ -1,0 +1,14 @@
+.forms__overlay{
+    background: #000000;
+    min-height: 1073px;
+    min-width: 100%;
+    position: absolute;
+    opacity: 0.5;
+}
+
+@media screen and (max-width:880px) {
+    .forms__overlay{
+        min-height: 2800px;
+
+    }
+}

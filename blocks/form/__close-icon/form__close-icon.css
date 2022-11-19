@@ -1,0 +1,21 @@
+.form__close-icon{
+    min-width: 40;
+    position: absolute;
+    z-index: 4;
+    bottom: 100%;
+    left: 100%;
+    background:black ;
+    transition: opacity 0.5s ease-in-out;
+}
+
+@media screen and (max-width:580px) {
+    .form__close-icon{
+        width: 26px;
+        left: 100%;
+        bottom: 100%;
+    }
+}
+
+.form__close-icon:hover{
+    opacity: 0.6;
+}
