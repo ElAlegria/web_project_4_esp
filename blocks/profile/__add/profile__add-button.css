@@ -2,20 +2,20 @@
     width: 282px;
     height: 50px;
     grid-area: button-add;
-    box-sizing: border-box;
-
+    background-image: url(../../../images/Add__Button.svg);
 }
 
 @media screen and (min-width:620px) {
     .profile__add-button{
         width: 120px;
         height: 50px;
-        background-image: url(../../../images/Add\ Button-150.svg);
+        background-image: url(../../../images/Add__Button-150.svg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+
     }
-}
+    }
 
 @media screen and (min-width:700px) {
     .profile__add-button{
