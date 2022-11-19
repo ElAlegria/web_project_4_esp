@@ -1,9 +1,13 @@
 @import url(../vendor/normalice.css);
 @import url(../vendor/fonts/inter.css);
+
 @import url(../blocks/page/page.css);
+
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
+
 @import url(../blocks/main/main.css);
+
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__imagen/profile__image.css);
 @import url(../blocks/profile/__info/profile__info.css);
@@ -11,6 +15,7 @@
 @import url(../blocks/profile/__description/profile__description.css);
 @import url(../blocks/profile/__edit/profile__edit-button.css);
 @import url(../blocks/profile/__add/profile__add-button.css);
+
 @import url(../blocks/forms/forms.css);
 @import url(../blocks/forms/__overlay/forms__overlay.css);
 @import url(../blocks/form/form.css);
