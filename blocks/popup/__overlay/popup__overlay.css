@@ -1,4 +1,4 @@
-.forms__overlay{
+.popup__overlay{
     background: #000000;
     min-height: 1073px;
     min-width: 100%;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width:880px) {
-    .forms__overlay{
+    .popup__overlay{
         min-height: 2800px;
 
     }

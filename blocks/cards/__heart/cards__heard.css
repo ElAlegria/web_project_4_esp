@@ -5,3 +5,7 @@
 .cards__heart:hover{
     opacity: .3;
 }
+
+.cards__heart:active{
+    background-image: url(../../../images/heart__active.svg);
+}

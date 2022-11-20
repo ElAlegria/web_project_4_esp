@@ -1,8 +1,8 @@
-.forms{
+.popup{
     height: 100%;
     display: flex;
     justify-content: center;
     width:100%;
     position: absolute;
-    /* display: none; */
+    display: none;
 }

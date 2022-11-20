@@ -24,19 +24,15 @@
                 <div class="profile__add-button"></div>
             </section>
 
-            <section class="forms">
-                <form class="form">
-                    <img src="./images/Close__Icon.svg" alt="" class="form__close-icon">
-                    <h2 class="form__title">Edit profile</h2>
-                    <label for="name">
-                        <input type="text" class="form__name" placeholder="Nombre">
-                    </label>
-                    <label for="Job">
-                        <input type="text" class="form__job" placeholder="Acerca de mi">
-                    </label>
-                    <button class="form__button">Guardar</button>
+            <section class="popup">
+                <form class="popup__container">
+                    <img src="./images/Close__Icon.svg" alt="" class="popup__close-icon">
+                    <h2 class="popup__title">Edit profile</h2>
+                        <input type="text" class="popup__name" placeholder="Nombre">
+                        <input type="text" class="popup__job" placeholder="Acerca de mi">
+                    <button class="popup__button">Guardar</button>
                 </form> 
-                <div class="forms__overlay"></div>
+                <div class="popup__overlay"></div>
             </section>
 
             <section class="cards">
@@ -95,6 +91,7 @@
             <h3 class="footer__author"> &#169;2021. Cristian Alegria</h3>
         </footer>
     </div>
+    <script src="./scripts/form.js"></script>
 </body>
 </html>
 

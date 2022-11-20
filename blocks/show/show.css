@@ -1,0 +1,21 @@
+@keyframes scale {
+    0%{
+        scale: 1;
+        opacity: 0;
+    }
+    50%{
+        scale: 1.2;
+        opacity: 70%;
+    }
+    100%{
+        scale: 1;
+        opacity: 100%;
+
+    }
+}
+
+
+.show{
+    display: flex;
+    animation: scale 1s ease-in-out;
+}
