@@ -1,101 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alrededor de los EE.UU.</title>
-    <link rel="stylesheet" href="./pages/index.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body>
     <div class="page">
-        <header class="header">
-            <img src="./images/title-header.png" alt="logo de la pagina" class="header__logo">
-        </header>
+      <header class="header">
+        <img
+          src="./images/title-header.png"
+          alt="logo de la pagina"
+          class="header__logo"
+        />
+      </header>
 
-        <main class="main">
-            <section class="profile">
-                <img src="./images/MAN.png" alt="" class="profile__image">
-                <div class="profile__info">
-                    <img src="./images/Edit__Button.svg" alt="button editar perfile" class="profile__edit-button">
-                    <h1 class="profile__name">Mi Nombre</h1>
-                    <p class="profile__job">Acerca de mi</p>
-                </div>
-                <div class="profile__add-button"></div>
-            </section>
+      <main class="main">
+        <section class="profile">
+          <img src="./images/MAN.png" alt="" class="profile__image" />
+          <div class="profile__info">
+            <img
+              src="./images/Edit__Button.svg"
+              alt="button editar perfile"
+              class="profile__edit-button"
+            />
+            <h1 class="profile__name">Mi Nombre</h1>
+            <p class="profile__job">Acerca de mi</p>
+          </div>
+          <div class="profile__add-button"></div>
+        </section>
 
-            <section class="popup">
-                <form class="popup__container" novalidate>
-                    <img src="./images/Close__Icon.svg" alt="Boton para cerrar formulario" class="popup__close-icon">
-                    <h2 class="popup__title">Edit profile</h2>
-                        <input type="text" class="popup__name" placeholder="Nombre">
-                        <input type="text" class="popup__job" placeholder="Acerca de mi">
-                    <button class="popup__button">Guardar</button>
-                </form> 
-                <div class="popup__overlay"></div>
-            </section>
+        <section class="popup">
+          <form class="popup__container" novalidate>
+            <img
+              src="./images/Close__Icon.svg"
+              alt="Boton para cerrar formulario"
+              class="popup__close-icon"
+            />
+            <h2 class="popup__title">Edit profile</h2>
+            <input type="text" class="popup__name" placeholder="Nombre" />
+            <input type="text" class="popup__job" placeholder="Acerca de mi" />
+            <button class="popup__button">Guardar</button>
+          </form>
+          <div class="popup__overlay"></div>
+        </section>
 
-            <section class="cards">
-                <div class="cards__card">
-                    <img src="./images/pino-invierno.png" alt="imagen de un lugar nevado con pinos" class="cards__image">
-                    <div class="cards__content">
-                        <h2 class="cards__title">Valle de Yosemite
-                        </h2>
-                        <img src="./images/heart.svg" alt="imagen de un corazon"  class="cards__heart">
-                    </div>
-                </div>
-                <div class="cards__card">
-                    <img src="./images/lago.png" ALT="imagen sobre un lago" class="cards__image">
-                    <div class="cards__content">
-                        <h2 class="cards__title">Lago Louise
-                        </h2>
-                        <img src="./images/heart.svg" alt="imagen de un corazon"  class="cards__heart">
-                    </div>
-                </div>
-                <div class="cards__card">
-                    <img src="./images/atardecer.png" ALT="imagen sobre un atardecer" class="cards__image">
-                    <div class="cards__content">
-                        <h2 class="cards__title">Montañas Calvas
-                        </h2>
-                        <img src="./images/heart.svg" alt="imagen de un corazon"  class="cards__heart">
-                    </div>
-                </div>
-                <div class="cards__card">
-                    <img src="./images/noche-nocturna.png" ALT="imagen sobre una noche estrellada" class="cards__image">
-                    <div class="cards__content">
-                        <h2 class="cards__title">Latemar
-                        </h2>
-                        <img src="./images/heart.svg" alt="imagen de un corazon"  class="cards__heart">
-                    </div>
-                </div>
-                <div class="cards__card">
-                    <img src="./images/lago-montaña.png" ALT="imagen sobre un lago con Montañas" class="cards__image">
-                    <div class="cards__content">
-                        <h2 class="cards__title">Vanoise Nationa...
-                        </h2>
-                        <img src="./images/heart.svg" alt="imagen de un corazon"  class="cards__heart">
-                    </div>
-                </div>
-                <div class="cards__card">
-                    <img src="./images/montañas-invierno.png" ALT="imagen sobre un lago y muelle" class="cards__image">
-                    <div class="cards__content">
-                        <h2 class="cards__title">Lago di Braies
-                        </h2>
-                        <img src="./images/heart.svg" alt="imagen de un corazon"  class="cards__heart">
-                    </div>
-                </div>
-            </section>
-        </main>
+        <section class="cards">
+          <div class="cards__card">
+            <img
+              src="./images/pino-invierno.png"
+              alt="imagen de un lugar nevado con pinos"
+              class="cards__image"
+            />
+            <div class="cards__content">
+              <h2 class="cards__title">Valle de Yosemite</h2>
+              <img
+                src="./images/heart.svg"
+                alt="imagen de un corazon"
+                class="cards__heart"
+              />
+            </div>
+          </div>
+          <div class="cards__card">
+            <img
+              src="./images/lago.png"
+              alt="imagen sobre un lago"
+              class="cards__image"
+            />
+            <div class="cards__content">
+              <h2 class="cards__title">Lago Louise</h2>
+              <img
+                src="./images/heart.svg"
+                alt="imagen de un corazon"
+                class="cards__heart"
+              />
+            </div>
+          </div>
+          <div class="cards__card">
+            <img
+              src="./images/atardecer.png"
+              alt="imagen sobre un atardecer"
+              class="cards__image"
+            />
+            <div class="cards__content">
+              <h2 class="cards__title">Montañas Calvas</h2>
+              <img
+                src="./images/heart.svg"
+                alt="imagen de un corazon"
+                class="cards__heart"
+              />
+            </div>
+          </div>
+          <div class="cards__card">
+            <img
+              src="./images/noche-nocturna.png"
+              alt="imagen sobre una noche estrellada"
+              class="cards__image"
+            />
+            <div class="cards__content">
+              <h2 class="cards__title">Latemar</h2>
+              <img
+                src="./images/heart.svg"
+                alt="imagen de un corazon"
+                class="cards__heart"
+              />
+            </div>
+          </div>
+          <div class="cards__card">
+            <img
+              src="./images/lago-montaña.png"
+              alt="imagen sobre un lago con Montañas"
+              class="cards__image"
+            />
+            <div class="cards__content">
+              <h2 class="cards__title">Vanoise Nationa...</h2>
+              <img
+                src="./images/heart.svg"
+                alt="imagen de un corazon"
+                class="cards__heart"
+              />
+            </div>
+          </div>
+          <div class="cards__card">
+            <img
+              src="./images/montañas-invierno.png"
+              alt="imagen sobre un lago y muelle"
+              class="cards__image"
+            />
+            <div class="cards__content">
+              <h2 class="cards__title">Lago di Braies</h2>
+              <img
+                src="./images/heart.svg"
+                alt="imagen de un corazon"
+                class="cards__heart"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
 
-        <footer class="footer">
-            <h3 class="footer__author"> &#169;2021. Cristian Alegria</h3>
-        </footer>
+      <footer class="footer">
+        <h3 class="footer__author">&#169;2021. Cristian Alegria</h3>
+      </footer>
     </div>
     <script src="./scripts/popup.js"></script>
-</body>
+  </body>
 </html>
-
-
-
-
-

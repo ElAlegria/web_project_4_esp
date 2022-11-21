@@ -5,15 +5,12 @@ const ButtonClose = popup.querySelector(".popup__close-icon");
 const ButtonEdit = document.querySelector(".profile__edit-button");
 
 function toggleForm() {
-
-    popup.classList.toggle("popup__show");
-    popupContainer.classList.toggle("popup__scale");
-
+  popup.classList.toggle("popup__show");
+  popupContainer.classList.toggle("popup__scale");
 }
 
-ButtonEdit.addEventListener("click",toggleForm);
-ButtonClose.addEventListener("click",toggleForm);
-
+ButtonEdit.addEventListener("click", toggleForm);
+ButtonClose.addEventListener("click", toggleForm);
 
 const inputname = popupContainer.querySelector(".popup__name");
 const inputjob = popupContainer.querySelector(".popup__job");
@@ -21,15 +18,13 @@ const inputjob = popupContainer.querySelector(".popup__job");
 const ProfileName = document.querySelector(".profile__name");
 const ProfielJob = document.querySelector(".profile__job");
 
-function  handleProfileFormSubmit(event) {
+function handleProfileFormSubmit(event) {
+  event.preventDefault();
 
-    event.preventDefault();
-    
-    ProfileName.textContent = inputname.value;
-    ProfielJob.textContent = inputjob.value;
+  ProfileName.textContent = inputname.value;
+  ProfielJob.textContent = inputjob.value;
 
-     toggleForm();
-
+  toggleForm();
 }
 
-popupContainer.addEventListener("submit",handleProfileFormSubmit);
+popupContainer.addEventListener("submit", handleProfileFormSubmit);

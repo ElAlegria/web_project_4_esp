@@ -1,21 +1,19 @@
 @keyframes opacity {
-    0%{
-        /* scale: 1; */
-        opacity: 0;
-    }
-    50%{
-        /* scale: 1.2; */
-        opacity: 70%;
-    }
-    100%{
-        /* scale: 1; */
-        opacity: 100%;
-
-    }
+  0% {
+    /* scale: 1; */
+    opacity: 0;
+  }
+  50% {
+    /* scale: 1.2; */
+    opacity: 70%;
+  }
+  100% {
+    /* scale: 1; */
+    opacity: 100%;
+  }
 }
 
-
-.popup__show{
-    display: flex;
-    animation: opacity .9s linear;
+.popup__show {
+  display: flex;
+  animation: opacity 0.9s linear;
 }

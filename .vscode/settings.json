@@ -1,26 +1,18 @@
-{
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascript]": {
-    Alt: A search bar with the text "Open Settings" and several suggested options below. The suggestions are "Preferences"Open Default
-    Settings (JSON)"
-    ,
-    "Preferences"Open Settings (JSON)"
-    , and "Preferences"Open Workspace Settings (JSON)".
-    Estándares de formato de código en Practicum de Yandex 3
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    
+"[css]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
   "files.autoSave": "onFocusChange", // guardar cada vez que cambies de ventana activa
   "editor.formatOnSave": true, // formatear cada vez que guardes
-}

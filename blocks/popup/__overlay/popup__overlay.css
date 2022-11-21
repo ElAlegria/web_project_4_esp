@@ -1,14 +1,13 @@
-.popup__overlay{
-    background: #000000;
-    min-height: 100%;
-    min-width: 100%;
-    position: absolute;
-    opacity: 0.5;
+.popup__overlay {
+  background: #000000;
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  opacity: 0.5;
 }
 
-@media screen and (max-width:880px) {
-    .popup__overlay{
-        min-height: 100%;
-
-    }
+@media screen and (max-width: 880px) {
+  .popup__overlay {
+    min-height: 100%;
+  }
 }
