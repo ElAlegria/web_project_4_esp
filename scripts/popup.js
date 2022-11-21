@@ -29,6 +29,7 @@ function  handleProfileFormSubmit(event) {
     ProfielJob.textContent = inputjob.value;
 
      toggleForm();
+
 }
 
 popupContainer.addEventListener("submit",handleProfileFormSubmit);
