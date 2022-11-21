@@ -19,5 +19,5 @@
 
 .profile__edit-button:hover{
     opacity: 50%;
-
+    cursor: pointer;
 }

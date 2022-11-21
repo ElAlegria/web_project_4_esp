@@ -15,8 +15,8 @@ ButtonEdit.addEventListener("click",toggleForm);
 ButtonClose.addEventListener("click",toggleForm);
 
 
-let inputname = popupContainer.querySelector(".popup__name");
-let inputjob = popupContainer.querySelector(".popup__job");
+const inputname = popupContainer.querySelector(".popup__name");
+const inputjob = popupContainer.querySelector(".popup__job");
 
 const ProfileName = document.querySelector(".profile__name");
 const ProfielJob = document.querySelector(".profile__job");

@@ -1,5 +1,5 @@
 .popup__close-icon{
-    min-width: 40;
+    min-width: 40px; 
     position: absolute;
     z-index: 4;
     bottom: 100%;
