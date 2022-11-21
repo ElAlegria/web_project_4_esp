@@ -35,4 +35,5 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__author/footer__author.css);
 
-@import url(../blocks/show/show.css);
+@import url(../blocks/popup/__show/popup__show.css);
+@import url(../blocks/popup/__scale/popup__scale.css);
