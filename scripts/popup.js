@@ -1,28 +1,28 @@
 const popup = document.querySelector(".popup");
 const popupContainer = popup.querySelector(".popup__container");
-const ButtonClose = popup.querySelector(".popup__close-icon");
+const buttonClose = popup.querySelector(".popup__close-icon");
 
-const ButtonEdit = document.querySelector(".profile__edit-button");
+const buttonEdit = document.querySelector(".profile__edit-button");
 
 function toggleForm() {
   popup.classList.toggle("popup__show");
   popupContainer.classList.toggle("popup__scale");
 }
 
-ButtonEdit.addEventListener("click", toggleForm);
-ButtonClose.addEventListener("click", toggleForm);
+buttonEdit.addEventListener("click", toggleForm);
+buttonClose.addEventListener("click", toggleForm);
 
-const inputname = popupContainer.querySelector(".popup__name");
-const inputjob = popupContainer.querySelector(".popup__job");
+const inputName = popupContainer.querySelector(".popup__name");
+const inputJob = popupContainer.querySelector(".popup__job");
 
-const ProfileName = document.querySelector(".profile__name");
-const ProfielJob = document.querySelector(".profile__job");
+const profileName = document.querySelector(".profile__name");
+const profielJob = document.querySelector(".profile__job");
 
 function handleProfileFormSubmit(event) {
   event.preventDefault();
 
-  ProfileName.textContent = inputname.value;
-  ProfielJob.textContent = inputjob.value;
+  profileName.textContent = inputName.value;
+  profielJob.textContent = inputJob.value;
 
   toggleForm();
 }
