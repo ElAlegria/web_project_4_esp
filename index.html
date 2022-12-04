@@ -32,7 +32,7 @@
           <div class="profile__add-button"></div>
         </section>
 
-        <section class="popup">
+         <section class="popup">
           <form class="popup__container" novalidate>
             <img
               src="./images/Close__Icon.svg"
@@ -45,106 +45,53 @@
             <button class="popup__button">Guardar</button>
           </form>
           <div class="popup__overlay"></div>
+        </section> 
+
+        <section class="create-card">
+          <form class="create-card__container" novalidate>
+            <img
+              src="./images/Close__Icon.svg"
+              alt="Boton para cerrar formulario"
+              class="create-card__close-icon"
+            />
+            <h2 class="create-card__title">Nuevo lugar</h2>
+            <input type="text" class="create-card__name" placeholder="Titulo"/>
+            <input type="text" class="create-card__image" placeholder="Enlace de la imagen"/>
+            <button class="create-card__button">Crear</button>
+          </form>
+          <div class="create-card__overlay"></div>
         </section>
 
         <section class="cards">
-          <div class="cards__card">
-            <img
-              src="./images/pino-invierno.png"
-              alt="imagen de un lugar nevado con pinos"
-              class="cards__image"
-            />
-            <div class="cards__content">
-              <h2 class="cards__title">Valle de Yosemite</h2>
-              <img
-                src="./images/heart.svg"
-                alt="imagen de un corazon"
-                class="cards__heart"
-              />
-            </div>
-          </div>
-          <div class="cards__card">
-            <img
-              src="./images/lago.png"
-              alt="imagen sobre un lago"
-              class="cards__image"
-            />
-            <div class="cards__content">
-              <h2 class="cards__title">Lago Louise</h2>
-              <img
-                src="./images/heart.svg"
-                alt="imagen de un corazon"
-                class="cards__heart"
-              />
-            </div>
-          </div>
-          <div class="cards__card">
-            <img
-              src="./images/atardecer.png"
-              alt="imagen sobre un atardecer"
-              class="cards__image"
-            />
-            <div class="cards__content">
-              <h2 class="cards__title">Montañas Calvas</h2>
-              <img
-                src="./images/heart.svg"
-                alt="imagen de un corazon"
-                class="cards__heart"
-              />
-            </div>
-          </div>
-          <div class="cards__card">
-            <img
-              src="./images/noche-nocturna.png"
-              alt="imagen sobre una noche estrellada"
-              class="cards__image"
-            />
-            <div class="cards__content">
-              <h2 class="cards__title">Latemar</h2>
-              <img
-                src="./images/heart.svg"
-                alt="imagen de un corazon"
-                class="cards__heart"
-              />
-            </div>
-          </div>
-          <div class="cards__card">
-            <img
-              src="./images/lago-montaña.png"
-              alt="imagen sobre un lago con Montañas"
-              class="cards__image"
-            />
-            <div class="cards__content">
-              <h2 class="cards__title">Vanoise Nationa...</h2>
-              <img
-                src="./images/heart.svg"
-                alt="imagen de un corazon"
-                class="cards__heart"
-              />
-            </div>
-          </div>
-          <div class="cards__card">
-            <img
-              src="./images/montañas-invierno.png"
-              alt="imagen sobre un lago y muelle"
-              class="cards__image"
-            />
-            <div class="cards__content">
-              <h2 class="cards__title">Lago di Braies</h2>
-              <img
-                src="./images/heart.svg"
-                alt="imagen de un corazon"
-                class="cards__heart"
-              />
-            </div>
-          </div>
         </section>
+
       </main>
 
       <footer class="footer">
         <h3 class="footer__author">&#169;2021. Cristian Alegria</h3>
       </footer>
     </div>
+
+    <template class="cards-template">
+      <div class="cards__card">
+        <img class="cards__remove" src="./images/remove.svg" alt="remove de tarjeta">
+        <img
+          src=""
+          alt="imagen que tu añadiste"
+          class="cards__image"
+        />
+        <div class="cards__content">
+          <h2 class="cards__title"></h2>
+          <img
+            src="./images/heart.svg"
+            alt="imagen de un corazon"
+            class="cards__heart"
+          />
+        </div>
+      </div>
+    </template>
+
     <script src="./scripts/popup.js"></script>
+    <script src="./scripts/create-card.js"></script>
   </body>
 </html>

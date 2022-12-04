@@ -1,0 +1,23 @@
+.create-card__button {
+  width: 238px;
+  min-height: 46px;
+  font-size: 14px;
+  line-height: 17px;
+  color: white;
+  background: black;
+  border-radius: 2px;
+  transition: opacity 0.5s ease-in-out;
+}
+@media screen and (min-width: 580px) {
+  .create-card__button {
+    width: 358px;
+    min-height: 50px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.create-card__button:hover {
+  opacity: 0.8;
+}

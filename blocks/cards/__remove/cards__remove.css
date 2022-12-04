@@ -1,0 +1,10 @@
+.cards__remove{
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    transition: opacity .5s ease-in-out;
+}
+
+.cards__remove:hover{
+    opacity: 0.3;
+}

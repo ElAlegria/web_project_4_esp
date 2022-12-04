@@ -1,4 +1,4 @@
-.popup__close-icon {
+.create-card__close-icon {
   max-width: 40px;
   position: absolute;
   z-index: 4;
@@ -9,17 +9,18 @@
 }
 
 @media screen and (max-width: 580px) {
-  .popup__close-icon {
+  .create-card__close-icon {
     left: 100%;
+    bottom: 100%;
   }
 }
 
-@media screen and (max-width: 430px) {
-  .popup__close-icon {
+@media screen and (max-width:430px) {
+  .create-card__close-icon{
     left: 46%;
     bottom: 105%;
   }
 }
-.popup__close-icon:hover {
+.create-card__close-icon:hover {
   opacity: 0.6;
 }

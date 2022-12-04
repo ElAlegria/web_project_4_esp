@@ -10,7 +10,7 @@
   }
 }
 
-.popup__scale {
+.animation__scale{
   display: flex;
   animation: scale 1s ease-in-out;
 }
