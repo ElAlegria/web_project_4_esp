@@ -1,12 +1,18 @@
 @keyframes scale {
   0% {
-    transform: scale(1);
+    transform: scale(.2);
+    box-shadow: 30px 20px 40px white;
+
   }
   50% {
     transform: scale(1.2);
+    box-shadow: -30px -20px 50px rgb(161, 160, 160);
+
   }
   100% {
     transform: scale(1);
+    box-shadow: 30px 20px 40px rgb(0, 0, 0);
+
   }
 }
 
