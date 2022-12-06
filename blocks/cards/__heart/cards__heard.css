@@ -28,7 +28,7 @@
 }
 
 .cards__heart_active {
-  animation: pulser .3s ease-in-out ;
+  animation: pulser .3s ease-in-out;
   opacity: 1;
   background: url(https://code.s3.yandex.net/web-code/dom/heart-filled.svg) center no-repeat;
 }
