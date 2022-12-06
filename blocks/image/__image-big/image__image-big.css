@@ -1,12 +1,20 @@
 .image__imagen-big{
-    max-width: 75vw;
-    max-height: 600px;
-    /* width: 80%;
-    min-height: 610px;
-    max-height: 610px;
-    min-width: 616px;
-    max-width: 816px; */
+    max-width:95%;
     z-index: 3;
     border-radius:15px 15px 15px 15px;
-    align-self: flex-end;
+    align-self: end;
+}
+
+@media screen and (max-width:880px) {
+    .image__imagen-big{
+        width: 95%;
+        height: 100%;
+        grid-area: image;
+    }
+}
+@media screen and (max-width:500px) {
+    .image__imagen-big{
+        height: 100%;
+        grid-area: image;
+    }
 }

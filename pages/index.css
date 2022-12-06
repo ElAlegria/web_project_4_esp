@@ -20,6 +20,7 @@
 @import url(../blocks/image/__container/imagen__container.css);
 @import url(../blocks/image/__overlay/image__overlay.css);
 @import url(../blocks/image/__image-big/image__image-big.css);
+@import url(../blocks/image/__name/image__name.css);
 @import url(../blocks/image/__close-button/image__close-button.css);
 
 @import url(../blocks/create-card/create-card.css);

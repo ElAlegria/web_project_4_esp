@@ -1,0 +1,4 @@
+.image__name{
+    z-index: 3;
+    grid-area:name;
+}

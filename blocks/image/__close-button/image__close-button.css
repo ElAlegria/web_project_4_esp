@@ -1,8 +1,22 @@
 .image__close-button{
     width: 40px;
     z-index: 3;
-    align-self: flex-start;
+    justify-self: end;
     /* position: absolute;
     top: 25%;
     right: 25%; */
+}
+
+@media screen and (max-width:880px) {
+    .image__close-button{
+        grid-area: closeButon;
+        align-self: flex-end;
+        justify-self: end;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .image__close-button{
+        width: 30px;
+    }
 }

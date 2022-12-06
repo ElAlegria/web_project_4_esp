@@ -11,6 +11,7 @@ const usuarioCards = document.querySelector(".cards");
 const image = document.querySelector(".image");
 const imageContainer = image.querySelector(".image__container")
 const imageBig = document.querySelector(".image__imagen-big");
+const imageName = image.querySelector(".image__name")
 const imageOverlay = image.querySelector(".image__overlay");
 const imageButtonClose = image.querySelector(".image__close-button");
 
@@ -83,6 +84,7 @@ function CreateCards(titleValue, linkValue) {
   //open image modal
   node.querySelector(".cards__image").addEventListener("click", function () {
     imageBig.src = linkValue;
+    imageName.textContent = titleValue;
     toggleForm(image, imageBig);
 
   });
