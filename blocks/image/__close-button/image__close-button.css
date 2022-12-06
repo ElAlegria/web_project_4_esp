@@ -1,7 +1,8 @@
 .image__close-button{
     width: 40px;
     z-index: 3;
-    position: absolute;
+    align-self: flex-start;
+    /* position: absolute;
     top: 25%;
-    right: 25%;
+    right: 25%; */
 }

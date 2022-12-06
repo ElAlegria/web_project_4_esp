@@ -7,8 +7,12 @@ const buttonAdd = document.querySelector(".profile__add-button");
 const inputImageCard = cardContainer.querySelector(".create-card__image");
 const InputNameCard = cardContainer.querySelector(".create-card__name");
 const usuarioCards = document.querySelector(".cards");
-const imageBigContainer = document.querySelector(".image")
-
+//image modal
+const image = document.querySelector(".image");
+const imageContainer = image.querySelector(".image__container")
+const imageBig = document.querySelector(".image__imagen-big");
+const imageOverlay = image.querySelector(".image__overlay");
+const imageButtonClose = image.querySelector(".image__close-button");
 
 //funciones para añadir tarjetas
 // const data = {title:'card Title'};
@@ -75,13 +79,22 @@ function CreateCards(titleValue, linkValue) {
         node.remove();
       }, 1200);
     });
-//open image modal
- node.querySelector(".cards__image").addEventListener('click',function () {
-  const imageBig = document.querySelector(".image__imagen-big");
-  imageBig.src = linkValue;
-  imageBigContainer.classList.add("animation__show")
-  imageBig.classList.add("animation__scale")
- });
+
+  //open image modal
+  node.querySelector(".cards__image").addEventListener("click", function () {
+    imageBig.src = linkValue;
+    toggleForm(image, imageBig);
+
+  });
+
+  //close image
+  imageButtonClose.addEventListener("click", function () {
+    toggleFormCardReverse(image, imageBig, imageOverlay);
+    imageButtonClose.classList.add("animation__show-reverse");
+    setTimeout(() => {
+      imageButtonClose.classList.remove("animation__show-reverse");
+    }, 1200);
+  });
   return node;
 }
 
@@ -89,7 +102,7 @@ function CreateCards(titleValue, linkValue) {
 function toggleFormCardReverse(object, content, overlay) {
   overlay.classList.add("animation__show-reverse");
   content.classList.add("animation__position-right");
-
+  content.classList.remove("animation__scale");
   setTimeout(() => {
     overlay.classList.remove("animation__show-reverse");
     object.classList.remove("animation__show");

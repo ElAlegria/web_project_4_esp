@@ -1,6 +1,12 @@
 .image__imagen-big{
-    max-width: 816px;
-    max-height: 700px;
-    z-index: 2;
-    border-radius:0;
+    max-width: 75vw;
+    max-height: 600px;
+    /* width: 80%;
+    min-height: 610px;
+    max-height: 610px;
+    min-width: 616px;
+    max-width: 816px; */
+    z-index: 3;
+    border-radius:15px 15px 15px 15px;
+    align-self: flex-end;
 }

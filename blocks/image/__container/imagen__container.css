@@ -1,0 +1,11 @@
+.image__container{
+    height: 75vh;
+    display: flex;
+    flex-direction: row-reverse;
+}
+ @media screen and(max-width:600px) {
+    .image__container{
+        position: absolute;
+        height: 300px;
+    }    
+ }
