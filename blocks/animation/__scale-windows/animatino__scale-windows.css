@@ -1,0 +1,22 @@
+@keyframes scale-window{
+    0%{
+        opacity: 1;
+    }
+    25%{
+        opacity: 0;
+    }
+    50%{
+    }
+    75%{
+
+    }
+    100%{
+
+    }
+}
+
+.animatino__scale-windows{
+    position: absolute;
+    width: 500px;
+    animation: scale-window 1s ease-in-out ;
+}

@@ -16,6 +16,11 @@
 @import url(../blocks/profile/__edit/profile__edit-button.css);
 @import url(../blocks/profile/__add/profile__add-button.css);
 
+@import url(../blocks/image/image.css);
+@import url(../blocks/image/__overlay/image__overlay.css);
+@import url(../blocks/image/__image-big/image__image-big.css);
+@import url(../blocks/image/__close-button/image__close-button.css);
+
 @import url(../blocks/create-card/create-card.css);
 @import url(../blocks/create-card/__container/create-card__container.css);
 @import url(../blocks/create-card/__title/create-card__title.css);
@@ -24,6 +29,7 @@
 @import url(../blocks/create-card/__button/create-card__button.css);
 @import url(../blocks/create-card/__overlay/create-card__overlay.css);
 @import url(../blocks/create-card/__close-icon/create-card__close-icon.css);
+@import url(../blocks/cards/__imagen-big/cards__image-big.css);
 
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
@@ -48,3 +54,4 @@
 @import url(../blocks/animation/__scale/animation__scale.css);
 @import url(../blocks/animation/__show/animation__show.css);
 @import url(../blocks/animation/__position-rigth/animation__position-rigth.css);
+@import url(../blocks/animation/__scale-windows/animatino__scale-windows.css);

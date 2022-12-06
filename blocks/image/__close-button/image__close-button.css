@@ -1,0 +1,7 @@
+.image__close-button{
+    width: 40px;
+    z-index: 3;
+    position: absolute;
+    top: 25%;
+    right: 25%;
+}

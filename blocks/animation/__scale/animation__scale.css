@@ -18,5 +18,6 @@
 
 .animation__scale{
   display: flex;
+  z-index:2;
   animation: scale 1s ease-in-out;
 }
