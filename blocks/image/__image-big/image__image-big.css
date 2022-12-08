@@ -1,5 +1,6 @@
 .image__imagen-big{
-    max-width:95%;
+    width: 90%;
+    height: 95%;
     z-index: 3;
     border-radius:15px 15px 15px 15px;
     align-self: end;

@@ -9,9 +9,9 @@ const InputNameCard = cardContainer.querySelector(".create-card__name");
 const usuarioCards = document.querySelector(".cards");
 //image modal
 const image = document.querySelector(".image");
-const imageContainer = image.querySelector(".image__container")
+const imageContainer = image.querySelector(".image__container");
 const imageBig = document.querySelector(".image__imagen-big");
-const imageName = image.querySelector(".image__name")
+const imageName = image.querySelector(".image__name");
 const imageOverlay = image.querySelector(".image__overlay");
 const imageButtonClose = image.querySelector(".image__close-button");
 
@@ -64,9 +64,10 @@ function CreateCards(titleValue, linkValue) {
   node.querySelector(".cards__title").textContent = titleValue;
   node.querySelector(".cards__image").src = linkValue;
 
-  usuarioCards.append(node);
+  usuarioCards.prepend(node);
   CardsSave.push(node);
 
+  //click link animation
   node.querySelector(".cards__heart").addEventListener("click", function (evt) {
     evt.target.classList.toggle("cards__heart_active");
   });
@@ -81,12 +82,25 @@ function CreateCards(titleValue, linkValue) {
       }, 1200);
     });
 
+  //animation creation cards
+  function animationJoinCard() {
+      node
+        .querySelector(".cards__image")
+        .classList.add("animation__join-up");
+      node
+        .querySelector(".cards__remove")
+        .classList.add("panimation__join-left");
+      node
+        .querySelector(".cards__content")
+        .classList.add("animation__join-back");
+      node.querySelector(".cards__title").classList.add("animation__join-text");
+  }
+
   //open image modal
   node.querySelector(".cards__image").addEventListener("click", function () {
     imageBig.src = linkValue;
     imageName.textContent = titleValue;
     toggleForm(image, imageBig);
-
   });
 
   //close image
@@ -97,6 +111,9 @@ function CreateCards(titleValue, linkValue) {
       imageButtonClose.classList.remove("animation__show-reverse");
     }, 1200);
   });
+
+  animationJoinCard();
+
   return node;
 }
 
@@ -122,7 +139,7 @@ cardContainer.addEventListener("submit", (event) => {
   event.preventDefault();
   toggleFormCardReverse(card, cardContainer, cardOverlay);
   CreateCards(InputNameCard.value, inputImageCard.value);
-
+  animationJoinCard();
   inputImageCard.value = "";
   InputNameCard.value = "";
 });

@@ -1,0 +1,49 @@
+@keyframes joinUp  {
+    0%{
+        transform: translateY(-900px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes  joinBack{
+    0%{
+        transform: translateY(900px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes  joinLeft{
+    0%{
+        transform: translateX(-900px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes  joinRight{
+    0%{
+        transform: translateX(-900px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes  joinText{
+
+}
+
+
+.animation__join-up{
+    animation: joinUp 1s ease-in-out forwards;
+}
+.animation__join-back{
+    animation: joinBack 1s ease-in-out forwards;
+}
+.animation__join-left{
+    animation: joinLeft 1s ease-in-out forwards;
+}
+
+.animation__join-text{
+}
