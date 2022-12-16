@@ -1,21 +1,19 @@
+import { toggleForm,toggleFormCardReverse } from "./Ultis.js";
 
 const popup = document.querySelector(".popup");
 const popupOverlay = popup.querySelector(".popup__overlay");
-const popupContainer = popup.querySelector(".popup__container");
+// const popupContainer = popup.querySelector(".popup__container");
+const popupContainer = document.forms.formEditProfie;
 const buttonClose = popup.querySelector(".popup__close-icon");
 const arrayPrueba = [];
 const buttonEdit = document.querySelector(".profile__edit-button");
-
-function toggleForm(Object,content) {
-  Object.classList.add("animation__show");
-  content.classList.add("animation__scale");
-}
 
 buttonEdit.addEventListener("click", ()=>{
   toggleForm(popup,popupContainer)
 });
 buttonClose.addEventListener("click", () => {
   toggleFormCardReverse(popup, popupContainer, popupOverlay);
+  popupContainer.reset();
 });
 
 const inputName = popupContainer.querySelector(".popup__name");
@@ -32,6 +30,6 @@ popupContainer.addEventListener("submit", (evt) => {
 
   arrayPrueba.push(profielJob + profileName);
   toggleFormCardReverse(popup, popupContainer, popupOverlay);
-  inputName.value = "";
-  inputJob.value = "";
+  popupContainer.reset();
+
 });

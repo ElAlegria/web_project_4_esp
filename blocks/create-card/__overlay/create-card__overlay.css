@@ -1,6 +1,6 @@
 .create-card__overlay {
   background: #000000;
-  min-height: 100vh;
+  min-height: 100%;
   min-width: 100%;
   position: absolute;
   opacity: 0.5;

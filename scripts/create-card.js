@@ -1,7 +1,10 @@
+import { toggleForm,toggleFormCardReverse} from "./Ultis.js";
+
 //formulario para modificar las cards
 const card = document.querySelector(".create-card");
 const cardOverlay = card.querySelector(".create-card__overlay");
-const cardContainer = card.querySelector(".create-card__container");
+// const cardContainer = card.querySelector(".create-card__container");
+const cardContainer = document.forms.formcards;
 const buttonCloseCard = card.querySelector(".create-card__close-icon");
 const buttonAdd = document.querySelector(".profile__add-button");
 const inputImageCard = cardContainer.querySelector(".create-card__image");
@@ -10,6 +13,7 @@ const usuarioCards = document.querySelector(".cards");
 //image modal
 const image = document.querySelector(".image");
 const imageContainer = image.querySelector(".image__container");
+const imageContent = image.querySelector(".image__content")
 const imageBig = document.querySelector(".image__imagen-big");
 const imageName = image.querySelector(".image__name");
 const imageOverlay = image.querySelector(".image__overlay");
@@ -83,32 +87,36 @@ function CreateCards(titleValue, linkValue) {
     });
 
   //animation creation cards
-  function animationJoinCard() {
+  function animationJoinCard(cardUp,cardleft,cardback) {
       node
         .querySelector(".cards__image")
         .classList.add("animation__join-up");
       node
         .querySelector(".cards__remove")
-        .classList.add("panimation__join-left");
+        .classList.add("animation__join-left");
       node
         .querySelector(".cards__content")
         .classList.add("animation__join-back");
-      node.querySelector(".cards__title").classList.add("animation__join-text");
   }
 
   //open image modal
   node.querySelector(".cards__image").addEventListener("click", function () {
     imageBig.src = linkValue;
     imageName.textContent = titleValue;
+    imageName.classList.add("animation__join-back")
     toggleForm(image, imageBig);
   });
 
   //close image
   imageButtonClose.addEventListener("click", function () {
     toggleFormCardReverse(image, imageBig, imageOverlay);
+    imageName.classList.remove("animation__join-back")
     imageButtonClose.classList.add("animation__show-reverse");
+    imageName.classList.add("animation__show-reverse")
     setTimeout(() => {
       imageButtonClose.classList.remove("animation__show-reverse");
+      imageName.classList.remove("animation__show-reverse")
+
     }, 1200);
   });
 
@@ -117,29 +125,19 @@ function CreateCards(titleValue, linkValue) {
   return node;
 }
 
-// open/close form card
-function toggleFormCardReverse(object, content, overlay) {
-  overlay.classList.add("animation__show-reverse");
-  content.classList.add("animation__position-right");
-  content.classList.remove("animation__scale");
-  setTimeout(() => {
-    overlay.classList.remove("animation__show-reverse");
-    object.classList.remove("animation__show");
-    content.classList.remove("animation__position-right");
-  }, 1100);
-}
 buttonAdd.addEventListener("click", () => {
   toggleForm(card, cardContainer);
 });
 buttonCloseCard.addEventListener("click", () => {
   toggleFormCardReverse(card, cardContainer, cardOverlay);
+
+  cardContainer.reset()
+
 });
 //save card
 cardContainer.addEventListener("submit", (event) => {
   event.preventDefault();
   toggleFormCardReverse(card, cardContainer, cardOverlay);
   CreateCards(InputNameCard.value, inputImageCard.value);
-  animationJoinCard();
-  inputImageCard.value = "";
-  InputNameCard.value = "";
+  cardContainer.reset()
 });

@@ -36,5 +36,6 @@
   animation: opacity, 0.9s linear;
 }
 .animation__show-reverse {
+  z-index: 5;
   animation: opacityreverses 0.9s linear forwards;
 }
