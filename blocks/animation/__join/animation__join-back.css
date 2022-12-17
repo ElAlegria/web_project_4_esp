@@ -8,5 +8,6 @@
 }
 
 .animation__join-back{
+    visibility: none;
     animation: joinBack 1s ease-in-out forwards;
 }

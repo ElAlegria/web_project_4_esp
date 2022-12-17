@@ -1,4 +1,4 @@
-.create-card__button {
+.form__button {
   width: 238px;
   min-height: 46px;
   font-size: 14px;
@@ -9,7 +9,7 @@
   transition: opacity 0.5s ease-in-out;
 }
 @media screen and (min-width: 580px) {
-  .create-card__button {
+  .form__button {
     width: 358px;
     min-height: 50px;
     font-weight: 400;
@@ -18,6 +18,6 @@
   }
 }
 
-.create-card__button:hover {
+.form__button__button:hover {
   opacity: 0.8;
 }

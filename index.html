@@ -32,19 +32,43 @@
           <div class="profile__add-button"></div>
         </section>
 
-        <section class="popup">
-          <form class="popup__container" name="formEditProfie" novalidate>
+        <section class="form" id="form__popup">
+          <form
+            class="form__container"
+            name="formEditProfie"
+            id="form__popup-container"
+            novalidate
+          >
             <img
               src="./images/Close__Icon.svg"
               alt="Boton para cerrar formulario"
-              class="popup__close-icon"
+              class="form__close-icon"
+              id="form__close-icon-popup"
             />
-            <h2 class="popup__title">Edit profile</h2>
-            <input type="text" class="popup__name" placeholder="Nombre" />
-            <input type="text" class="popup__job" placeholder="Acerca de mi" />
-            <button class="popup__button" type="submit">Guardar</button>
+            <h2 class="form__title">Edit profile</h2>
+            <label class="form__label">
+              <input
+                type="text"
+                class="form__input"
+                id="form__name-popup"
+                placeholder="Nombre"
+                name="name"
+              />
+              <span class="form__input-error name-input-error"></span>
+            </label>
+            <label for="" class="form__label">
+              <input
+                type="text"
+                class="form__input"
+                id="form__job-popup"
+                placeholder="Acerca de mi"
+                name="job"
+              />
+              <span class="form__input-error job-input-error"></span>
+            </label>
+            <button class="form__button" id="form__button-popup" type="submit">Guardar</button>
           </form>
-          <div class="popup__overlay"></div>
+          <div class="form__overlay" id="form__overlay-popup"></div>
         </section>
 
         <section class="image">
@@ -54,35 +78,51 @@
               alt="Boton para cerrar modal"
               class="image__close-button"
             />
-              <img src=" " alt="imgen modal" class="image__imagen-big" />
-              <p class="image__name"></p>
+            <img src=" " alt="imgen modal" class="image__imagen-big" />
+            <p class="image__name"></p>
           </div>
           <div class="image__overlay"></div>
         </section>
 
-        <section class="create-card">
-          <form class="create-card__container" name="formcards" novalidate>
+        <section class="form" id="form-cards"
+        >
+          <form
+            class="form__container"
+            name="formcards"
+            novalidate
+          >
             <img
               src="./images/Close__Icon.svg"
               alt="Boton para cerrar formulario"
-              class="create-card__close-icon"
+              class="form__close-icon"
+              id="form__close-icon-cards"
             />
-            <h2 class="create-card__title">Nuevo lugar</h2>
-            <input
-              type="text"
-              class="create-card__name"
-              placeholder="Titulo"
-              required
-            />
-            <input
-              type="url"
-              class="create-card__image"
-              placeholder="Enlace de la imagen"
-              required
-            />
-            <button class="create-card__button" type="submit">Crear</button>
+            <h2 class="form__title">Nuevo lugar</h2>
+            <label class="form__label">
+              <input
+                type="text"
+                class="form__input"
+                id="form__title"
+                placeholder="Titulo"
+                name="title"
+                required
+              />
+              <span class="form__input-error title-input-error"></span>
+            </label>
+            <label class="form__label">
+              <input
+                type="url"
+                class="form__input"
+                id="form__image"
+                placeholder="Enlace de la imagen"
+                name="link"
+                required
+              />
+              <span class="form__input-error link-input-error"></span>
+            </label>
+            <button class="form__button" id="form__button-cards" type="submit">Crear</button>
           </form>
-          <div class="create-card__overlay"></div>
+          <div class="form__overlay" id="form__overlay-cards"></div>
         </section>
 
         <section class="cards"></section>
@@ -113,5 +153,6 @@
     </template>
     <script src="./scripts/popup.js" type="module"></script>
     <script src="./scripts/create-card.js" type="module"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-.create-card__close-icon {
+.form__close-icon {
   max-width: 40px;
   position: absolute;
   z-index: 4;
@@ -9,18 +9,18 @@
 }
 
 @media screen and (max-width: 580px) {
-  .create-card__close-icon {
+  .form__close-icon {
     left: 100%;
     bottom: 100%;
   }
 }
 
 @media screen and (max-width:430px) {
-  .create-card__close-icon{
+  .form__close-icon {
     left: 46%;
     bottom: 105%;
   }
 }
-.create-card__close-icon:hover {
+.form__close-icon:hover {
   opacity: 0.6;
 }
