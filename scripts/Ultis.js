@@ -49,8 +49,10 @@ export function elementDisabled(elementDisabled) {
   elementDisabled.classList.add("form__button_disabled");
 }
 
-
-export function elementClose(evt){
-  if (evt.keyCode === 27 ) {
-    toggleFormCardReverse(object, content, overlay)  }
+export function KeyHandle(object, content, overlay){
+  window.addEventListener("keydown",function(e){
+    if (e.key === "Escape") {
+      toggleFormCardReverse(object, content, overlay);
+    }
+  });
 }

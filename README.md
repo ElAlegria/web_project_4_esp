@@ -14,7 +14,8 @@ Tecnologias Utilizadas 🛠️
 1. JavaScript
    - Este proyecto implementa EventListeners para realizar ciertas acciones en funcion de
      los eventos. Actualmente, este proyecto abrirá un editor cuando se haga clic en el botón "editar"
-     y permitira al usuario colocar su nombre y ocupacion.
+     y permitira al usuario colocar su nombre y ocupacion, al igual que tendra un creador de tarjetas personalizado para que el usuario
+     cree sus cartas a su gusto.
 2. Diseño Responsivo
    - El sitio web se ha desarrollado siguiendo el primer enfoque de un dispositivo móvil.
    - El sitio web está diseñado para escalar sin problemas en diferentes resoluciones
@@ -32,9 +33,13 @@ Tecnologias Utilizadas 🛠️
 **Documento con Especificaciones del Proyecto**
 
 - [Proyecto en Figma](https://www.figma.com/file/LDMgqWesKpQkIwhOfEBuTS/WEB%2C-Sprint-5%3A-Around-The-U.S.-%7C-desktop-%2B-mobile?node-id=0%3A1)
+## mejoras echas
+- se mejoro la fluides de las animaciones
+- se agrego un validador para cada formulario
+- ajuste en la sintaxis del codigo
 
 ## Mejoras futuras 🔍
-
+- incluir un boton para eliminar todas las tarjetas al mismo tiempo
 - Permitir a los usuarios actualizar el avatar de su perfil.
 - Permitir agregar o quitar tarjetas con los lugares que han visitado nuevos usuarios.
 - Animation extra para el usuario

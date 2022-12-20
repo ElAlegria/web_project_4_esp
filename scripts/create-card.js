@@ -5,7 +5,7 @@ import {
   openImageModal,
   closeImageModal,
   elementDisabled,
-  elementClose
+  KeyHandle
 } from "./Ultis.js";
 import { validateForm } from "./validate.js";
 
@@ -13,13 +13,13 @@ import { validateForm } from "./validate.js";
 const card = document.querySelector("#form-cards");
 const cardOverlay = card.querySelector("#form__overlay-cards");
 export const cardContainer = document.forms.formcards;
-const formInputcard = cardContainer.querySelectorAll(".form__input");
 const formButtonSumite = cardContainer.querySelector(".form__button");
-const messageError = cardContainer.querySelector(".form__input-error")
+const messageError = cardContainer.querySelector(".form__input-error");
 const buttonCloseCard = card.querySelector("#form__close-icon-cards");
 const buttonAdd = document.querySelector(".profile__add-button");
 const inputImageCard = cardContainer.querySelector("#form__image");
 const InputNameCard = cardContainer.querySelector("#form__title");
+//creador de cartas
 const usuarioCards = document.querySelector(".cards");
 const cardTemplate = document
   .querySelector(".cards-template")
@@ -100,8 +100,8 @@ export function CreateCards(titleValue, linkValue) {
   cardsImage.addEventListener("click", () => {
     toggleForm(image, imageBig);
     openImageModal(imageName, imageBig, linkValue, titleValue);
+    KeyHandle(image, imageBig, imageOverlay)
   });
-
   imageButtonClose.addEventListener("click", () => {
     closeImageModal(imageButtonClose, imageName);
     toggleFormCardReverse(image, imageBig, imageOverlay);
@@ -112,18 +112,22 @@ export function CreateCards(titleValue, linkValue) {
 
 buttonAdd.addEventListener("click", () => {
   toggleForm(card, cardContainer);
+  KeyHandle(card, cardContainer, cardOverlay)
 });
 buttonCloseCard.addEventListener("click", () => {
   toggleFormCardReverse(card, cardContainer, cardOverlay);
-  
-  elementDisabled(formButtonSumite)
+
+  elementDisabled(formButtonSumite);
 
   cardContainer.reset();
 });
 
-card.addEventListener("keydown",elementClose)
-cardOverlay.addEventListener("click", () =>{
+
+
+
+cardOverlay.addEventListener("click", () => {
   toggleFormCardReverse(card, cardContainer, cardOverlay);
+  // cardContainer.reset();
 });
 
 //validate form
@@ -131,7 +135,7 @@ validateForm(card, formButtonSumite, messageError);
 //save card
 cardContainer.addEventListener("submit", (event) => {
   event.preventDefault();
-  elementDisabled(formButtonSumite)
+  elementDisabled(formButtonSumite);
   toggleFormCardReverse(card, cardContainer, cardOverlay);
   CreateCards(InputNameCard.value, inputImageCard.value);
   cardContainer.reset();
