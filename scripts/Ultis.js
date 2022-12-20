@@ -27,7 +27,7 @@ export function animationJoinCard(cardUp, cardleft, cardback) {
 }
 
 //open image modal
-export function openImageModal(imageName,imageBig,link,title) {
+export function openImageModal(imageName, imageBig, link, title) {
   imageName.classList.add("animation__join-back");
   imageBig.src = link;
   imageName.textContent = title;
@@ -44,7 +44,13 @@ export function closeImageModal(ButtonClose, imageName) {
   }, 1200);
 }
 
-export function elementDisabled(elementDisabled){
+export function elementDisabled(elementDisabled) {
   elementDisabled.disabled = true;
-  elementDisabled.classList.add("form__button_disabled")
+  elementDisabled.classList.add("form__button_disabled");
+}
+
+
+export function elementClose(evt){
+  if (evt.keyCode === 27 ) {
+    toggleFormCardReverse(object, content, overlay)  }
 }

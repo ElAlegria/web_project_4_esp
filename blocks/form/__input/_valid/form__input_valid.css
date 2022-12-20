@@ -1,3 +1,19 @@
+@keyframes jump {
+    0%{
+        transform:translateY(0) ;
+    }
+    25%{
+        transform:translateY(-10px) ;
+    }
+    75%{
+        transform:translateY(5px) ;
+    }
+    100%{
+        transform:translateY(0) ;
+
+    }
+}
 .form__input_valid{
+    animation: jump .4s ease-in-out ;
     border: 2px solid green;
 }

@@ -5,6 +5,7 @@ import {
   openImageModal,
   closeImageModal,
   elementDisabled,
+  elementClose
 } from "./Ultis.js";
 import { validateForm } from "./validate.js";
 
@@ -114,10 +115,17 @@ buttonAdd.addEventListener("click", () => {
 });
 buttonCloseCard.addEventListener("click", () => {
   toggleFormCardReverse(card, cardContainer, cardOverlay);
+  
   elementDisabled(formButtonSumite)
 
   cardContainer.reset();
 });
+
+card.addEventListener("keydown",elementClose)
+cardOverlay.addEventListener("click", () =>{
+  toggleFormCardReverse(card, cardContainer, cardOverlay);
+});
+
 //validate form
 validateForm(card, formButtonSumite, messageError);
 //save card
