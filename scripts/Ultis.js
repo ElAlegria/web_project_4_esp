@@ -43,3 +43,8 @@ export function closeImageModal(ButtonClose, imageName) {
     imageName.classList.remove("animation__show-reverse");
   }, 1200);
 }
+
+export function elementDisabled(elementDisabled){
+  elementDisabled.disabled = true;
+  elementDisabled.classList.add("form__button_disabled")
+}

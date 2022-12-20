@@ -4,12 +4,17 @@ import {
   animationJoinCard,
   openImageModal,
   closeImageModal,
+  elementDisabled,
 } from "./Ultis.js";
+import { validateForm } from "./validate.js";
 
 //formulario para modificar las cards
 const card = document.querySelector("#form-cards");
 const cardOverlay = card.querySelector("#form__overlay-cards");
 export const cardContainer = document.forms.formcards;
+const formInputcard = cardContainer.querySelectorAll(".form__input");
+const formButtonSumite = cardContainer.querySelector(".form__button");
+const messageError = cardContainer.querySelector(".form__input-error")
 const buttonCloseCard = card.querySelector("#form__close-icon-cards");
 const buttonAdd = document.querySelector(".profile__add-button");
 const inputImageCard = cardContainer.querySelector("#form__image");
@@ -74,6 +79,8 @@ export function CreateCards(titleValue, linkValue) {
   cardsImage.src = linkValue;
 
   usuarioCards.prepend(node);
+  animationJoinCard(cardsImage, cardsRemoveButton, cardsContent);
+
   CardsSave.push(node);
 
   //click link animation
@@ -99,8 +106,6 @@ export function CreateCards(titleValue, linkValue) {
     toggleFormCardReverse(image, imageBig, imageOverlay);
   });
 
-  animationJoinCard(cardsImage, cardsRemoveButton, cardsContent);
-
   return node;
 }
 
@@ -109,12 +114,16 @@ buttonAdd.addEventListener("click", () => {
 });
 buttonCloseCard.addEventListener("click", () => {
   toggleFormCardReverse(card, cardContainer, cardOverlay);
+  elementDisabled(formButtonSumite)
 
   cardContainer.reset();
 });
+//validate form
+validateForm(card, formButtonSumite, messageError);
 //save card
 cardContainer.addEventListener("submit", (event) => {
   event.preventDefault();
+  elementDisabled(formButtonSumite)
   toggleFormCardReverse(card, cardContainer, cardOverlay);
   CreateCards(InputNameCard.value, inputImageCard.value);
   cardContainer.reset();
