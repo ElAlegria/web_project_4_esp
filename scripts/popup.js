@@ -32,7 +32,9 @@ validateForm(popupContainer, popupButtonSubmit);
   profielJob.textContent = inputJob.value;
  }
 
-
+ popupOverlay.addEventListener("click", () => {
+  toggleFormCardReverse(popup, popupContainer, popupOverlay);
+});
 popupContainer.addEventListener("submit", (evt) => {
   evt.preventDefault();
   delateClassInput(popup)

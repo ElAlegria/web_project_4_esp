@@ -119,7 +119,6 @@ buttonCloseCard.addEventListener("click", () => {
 
   elementDisabled(formButtonSumite);
   delateClassInput(card)
-
   cardContainer.reset();
 });
 
