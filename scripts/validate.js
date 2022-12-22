@@ -1,6 +1,6 @@
 export function validateForm(forms, buttonSubmite) {
   forms.querySelectorAll(".form__input").forEach((items) => {
-    const eventItem=items.addEventListener("input", (event) => {
+    items.addEventListener("input", (event) => {
       const message = forms.querySelector(
         ".form__input-error_" + event.target.name
       );
@@ -22,6 +22,15 @@ export function validateForm(forms, buttonSubmite) {
     });
   });
   toggleButton(forms, buttonSubmite);
+}
+export function delateClassInput(forms) {
+  forms.querySelectorAll(".form__input").forEach((event) => {
+    const menssageError = forms.querySelector(
+      ".form__input-error_" + event.name
+    );
+    event.classList.remove("form__input_valid","form__input__invalid")
+    menssageError.classList.remove("form__input-error_valid","form__input-error_invalid");
+  });
 }
 
 function isFormValid(formcheck) {
@@ -47,11 +56,6 @@ function setValidationMessage(inputElement, isValid, validationMessage) {
   inputElement.classList.remove(
     isValid ? "form__input-error_invalid" : "form__input-error_valid"
   );
-   setTimeout(() => {
-     inputElement.classList.remove(
-      "form__input-error_valid","form__input-error_invalid"
-     );
-   }, 3000);
 }
 function setValidationInputs(inputElement, isValid) {
   inputElement.classList.add(
@@ -60,9 +64,4 @@ function setValidationInputs(inputElement, isValid) {
   inputElement.classList.remove(
     isValid ? "form__input__invalid" : "form__input_valid"
   );
-   setTimeout(() => {
-     inputElement.classList.remove(
-      "form__input_valid","form__input__invalid"
-     );
-   }, 3000);
 }

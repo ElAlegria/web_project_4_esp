@@ -1,5 +1,5 @@
 import { toggleForm, toggleFormCardReverse,elementDisabled,KeyHandle } from "./Ultis.js";
-import { validateForm } from "./validate.js";
+import { validateForm,delateClassInput} from "./validate.js";
 //popup
 const popup = document.querySelector("#form__popup");
 const popupOverlay = popup.querySelector("#form__overlay-popup");
@@ -16,9 +16,10 @@ buttonEdit.addEventListener("click", () => {
 buttonClose.addEventListener("click", () => {
   toggleFormCardReverse(popup, popupContainer, popupOverlay);
   elementDisabled(popupButtonSubmit)
+  delateClassInput(popup)
   popupContainer.reset();
 });
- validateForm(popupContainer, popupButtonSubmit);
+validateForm(popupContainer, popupButtonSubmit);
 
  function editProfile(){
   const inputName = popupContainer.querySelector("#form__name-popup");
@@ -34,6 +35,7 @@ buttonClose.addEventListener("click", () => {
 
 popupContainer.addEventListener("submit", (evt) => {
   evt.preventDefault();
+  delateClassInput(popup)
   elementDisabled(popupButtonSubmit)
   editProfile();
   toggleFormCardReverse(popup, popupContainer, popupOverlay);

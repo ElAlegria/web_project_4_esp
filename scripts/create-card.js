@@ -7,7 +7,7 @@ import {
   elementDisabled,
   KeyHandle
 } from "./Ultis.js";
-import { validateForm } from "./validate.js";
+import { validateForm,delateClassInput} from "./validate.js";
 
 //formulario para modificar las cards
 const card = document.querySelector("#form-cards");
@@ -118,6 +118,7 @@ buttonCloseCard.addEventListener("click", () => {
   toggleFormCardReverse(card, cardContainer, cardOverlay);
 
   elementDisabled(formButtonSumite);
+  delateClassInput(card)
 
   cardContainer.reset();
 });
@@ -131,7 +132,7 @@ cardOverlay.addEventListener("click", () => {
 });
 
 //validate form
-validateForm(card, formButtonSumite, messageError);
+validateForm(card, formButtonSumite);
 //save card
 cardContainer.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -139,4 +140,5 @@ cardContainer.addEventListener("submit", (event) => {
   toggleFormCardReverse(card, cardContainer, cardOverlay);
   CreateCards(InputNameCard.value, inputImageCard.value);
   cardContainer.reset();
+  delateClassInput(card)
 });
