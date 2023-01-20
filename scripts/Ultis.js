@@ -1,11 +1,11 @@
 //open form
-export function toggleForm(Object, content) {
+export const toggleForm = (Object, content) => {
   Object.classList.add("animation__show");
   content.classList.add("animation__scale");
 }
 
 //close form
-export function toggleFormCardReverse(object, content, overlay) {
+export const toggleFormCardReverse = (object, content, overlay) => {
   overlay.classList.add("animation__show-reverse");
   content.classList.add("animation__position-right");
   content.classList.remove("animation__scale");
@@ -17,24 +17,24 @@ export function toggleFormCardReverse(object, content, overlay) {
 }
 
 //animation creation cards
-export function animationJoinCard(cardUp, cardleft, cardback) {
+export  const animationJoinCard = (cardUp, cardLeft, cardBack) => {
   cardUp.classList // .querySelector(".cards__image")
     .add("animation__join-up");
-  cardleft.classList // .querySelector(".cards__remove")
+  cardLeft.classList // .querySelector(".cards__remove")
     .add("animation__join-left");
-  cardback.classList // .querySelector(".cards__content")
+  cardBack.classList // .querySelector(".cards__content")
     .add("animation__join-back");
 }
 
 //open image modal
-export function openImageModal(imageName, imageBig, link, title) {
+export const openImageModal = (imageName, imageBig, link, title) => {
   imageName.classList.add("animation__join-back");
   imageBig.src = link;
   imageName.textContent = title;
 }
 
 //close image
-export function closeImageModal(ButtonClose, imageName) {
+export const closeImageModal = (ButtonClose, imageName) => {
   imageName.classList.remove("animation__join-back");
   ButtonClose.classList.add("animation__show-reverse");
   imageName.classList.add("animation__show-reverse");
@@ -44,12 +44,12 @@ export function closeImageModal(ButtonClose, imageName) {
   }, 1200);
 }
 
-export function elementDisabled(elementDisabled) {
+export const elementDisabled = (elementDisabled) =>{
   elementDisabled.disabled = true;
   elementDisabled.classList.add("form__button_disabled");
 }
 
-export function KeyHandle(object, content, overlay){
+export const KeyHandle = (object, content, overlay) =>{
   window.addEventListener("keydown",function(e){
     if (e.key === "Escape") {
       toggleFormCardReverse(object, content, overlay);

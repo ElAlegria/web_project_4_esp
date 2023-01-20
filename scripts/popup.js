@@ -4,7 +4,7 @@ import { validateForm,delateClassInput} from "./validate.js";
 const popup = document.querySelector("#form__popup");
 const popupOverlay = popup.querySelector("#form__overlay-popup");
 //popup form
-const popupContainer = document.forms.formEditProfie;
+const popupContainer = document.forms.formEditProfile;
 const popupButtonSubmit = popupContainer.querySelector("#form__button-popup");
 const buttonClose = popup.querySelector("#form__close-icon-popup");
 const buttonEdit = document.querySelector(".profile__edit-button");

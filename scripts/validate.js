@@ -1,4 +1,4 @@
-export function validateForm(forms, buttonSubmite) {
+export function validateForm(forms, ButtonSubmit) {
   forms.querySelectorAll(".form__input").forEach((items) => {
     items.addEventListener("input", (event) => {
       const message = forms.querySelector(
@@ -9,7 +9,7 @@ export function validateForm(forms, buttonSubmite) {
         setValidationMessage(
           message,
           event.target.validity.valid,
-          "Soy valido perro prosigue"
+          "Is valid "
         );
       } else {
         setValidationMessage(
@@ -18,34 +18,34 @@ export function validateForm(forms, buttonSubmite) {
           event.target.validationMessage
         );
       }
-      toggleButton(forms, buttonSubmite);
+      toggleButton(forms, ButtonSubmit);
     });
   });
-  toggleButton(forms, buttonSubmite);
+  toggleButton(forms, ButtonSubmit);
 }
 export function delateClassInput(forms) {
   forms.querySelectorAll(".form__input").forEach((event) => {
-    const menssageError = forms.querySelector(
+    const messageError = forms.querySelector(
       ".form__input-error_" + event.name
     );
     event.classList.remove("form__input_valid","form__input__invalid")
-    menssageError.classList.remove("form__input-error_valid","form__input-error_invalid");
+    messageError.classList.remove("form__input-error_valid","form__input-error_invalid");
   });
 }
 
-function isFormValid(formcheck) {
-  const formInputs = Array.from(formcheck.querySelectorAll(".form__input"));
+function isFormValid(formCheck) {
+  const formInputs = Array.from(formCheck.querySelectorAll(".form__input"));
   return formInputs.every((item) => {
     return item.validity.valid;
   });
 }
-function toggleButton(form, formsubmitebutton) {
+function toggleButton(form, formSubmitButton) {
   if (!isFormValid(form)) {
-    formsubmitebutton.classList.add("form__button_disabled");
-    formsubmitebutton.disabled = true;
+    formSubmitButton.disabled = true;
+    formSubmitButton.classList.add("form__button_disabled");
   } else {
-    formsubmitebutton.classList.remove("form__button_disabled");
-    formsubmitebutton.disabled = false;
+    formSubmitButton.classList.remove("form__button_disabled");
+    formSubmitButton.disabled = false;
   }
 }
 function setValidationMessage(inputElement, isValid, validationMessage) {
