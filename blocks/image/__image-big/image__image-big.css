@@ -1,18 +1,18 @@
-.image__imagen-big{
-    width: 95%;
+.image__image-big{
+    max-width: 95%;
     z-index: 3;
     border-radius:15px 15px 15px 15px;
     align-self: end;
 }
 
 @media screen and (max-width:880px) {
-    .image__imagen-big{
+    .image__image-big{
         height: 100%;
         grid-area: image;
     }
 }
 @media screen and (max-width:500px) {
-    .image__imagen-big{
+    .image__image-big{
         height: 100%;
         grid-area: image;
     }

@@ -4,20 +4,10 @@ import {
   animationJoinCard,
   openImageModal,
   closeImageModal,
-  elementDisabled,
   KeyHandle,
 } from "./Ultis.js";
-import { validateForm, delateClassInput } from "./validate.js";
 
-//Form  Modified  cards
-const card = document.querySelector("#form-cards");
-const cardOverlay = card.querySelector("#form__overlay-cards");
-const cardContainer = document.forms.formcards;
-const formButtonSubmit = cardContainer.querySelector(".form__button");
-const buttonCloseCard = card.querySelector("#form__close-icon-cards");
-const buttonAdd = document.querySelector(".profile__add-button");
-const inputImageCard = cardContainer.querySelector("#form__image");
-const InputNameCard = cardContainer.querySelector("#form__title");
+
 //Create de card
 const userCards = document.querySelector(".cards");
 const cardTemplate = document
@@ -26,7 +16,7 @@ const cardTemplate = document
 
 //image modal
 const image = document.querySelector(".image");
-const imageBig = document.querySelector(".image__imagen-big");
+const imageBig = document.querySelector(".image__image-big");
 const imageName = image.querySelector(".image__name");
 const imageOverlay = image.querySelector(".image__overlay");
 const imageButtonClose = image.querySelector(".image__close-button");
@@ -60,10 +50,9 @@ const initialCards = [
   },
 ];
 
-//sintaxis generate cards
-const CardsSave = [];
+// syntax generate cards
 
-class Card {
+ class Card {
   constructor(cardSelector, title, image) {
     this._cardSelector = cardSelector;
     this._title = title;
@@ -95,11 +84,11 @@ class Card {
   }
   _openImageModal() {
     toggleForm(image, imageBig);
-    openImageModal(imageName, imageBig, this._image, this._image);
+    openImageModal(imageName, imageBig, this._image, this._title);
     KeyHandle(image, imageBig, imageOverlay);
   }
   _closeImageModal() {
-    closeImageModal(imageButtonClose, imageName);
+    closeImageModal(imageButtonClose, imageName,imageBig);
     toggleFormCardReverse(image, imageBig, imageOverlay);
   }
   _setCardEventListeners() {
@@ -111,8 +100,8 @@ class Card {
 
     this._cardNode
       .querySelector(".cards__heart")
-      .addEventListener("click", function (evt) {
-        this._clickLikeHeard();
+      .addEventListener("click",  (evt) => {
+        this._clickLikeHeard(evt);
       });
     this._cardNode
       .querySelector(".cards__image")
@@ -133,43 +122,16 @@ class Card {
     return this._cardNode;
   }
 }
+  initialCards.map(function (Card) {
+  cardGenerate(Card.name, Card.link)
+  
+});
 
-function cardGenerate(titleValue, linkValue) {
+export function cardGenerate(titleValue, linkValue) {
   const newElement = new Card(cardTemplate, titleValue, linkValue);
   const cardGenerate = newElement.generateCard();
   userCards.prepend(cardGenerate);
 }
 
-initialCards.map(function (Card) {
-  cardGenerate(Card.name, Card.link);
-});
 
-buttonAdd.addEventListener("click", () => {
-  toggleForm(card, cardContainer);
-  KeyHandle(card, cardContainer, cardOverlay);
-});
-buttonCloseCard.addEventListener("click", () => {
-  toggleFormCardReverse(card, cardContainer, cardOverlay);
 
-  elementDisabled(formButtonSumite);
-  delateClassInput(card);
-  cardContainer.reset();
-});
-
-cardOverlay.addEventListener("click", () => {
-  toggleFormCardReverse(card, cardContainer, cardOverlay);
-  // cardContainer.reset();
-});
-
-//validate form
-validateForm(card, formButtonSubmit);
-
-//save card
-cardContainer.addEventListener("submit", (event) => {
-  event.preventDefault();
-  elementDisabled(formButtonSubmit);
-  toggleFormCardReverse(card, cardContainer, cardOverlay);
-  cardGenerate(InputNameCard.value, inputImageCard.value);
-  delateClassInput(card);
-  cardContainer.reset();
-});
