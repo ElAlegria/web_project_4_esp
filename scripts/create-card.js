@@ -7,7 +7,6 @@ import {
   KeyHandle,
 } from "./Ultis.js";
 
-
 //Create de card
 const userCards = document.querySelector(".cards");
 const cardTemplate = document
@@ -22,7 +21,6 @@ const imageOverlay = image.querySelector(".image__overlay");
 const imageButtonClose = image.querySelector(".image__close-button");
 
 //  array cards
-
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -52,11 +50,11 @@ const initialCards = [
 
 // syntax generate cards
 
- class Card {
-  constructor(cardSelector, title, image) {
+class Card {
+  constructor(cardSelector,data) {
     this._cardSelector = cardSelector;
-    this._title = title;
-    this._image = image;
+    this._title = data.name;
+    this._image = data.link;
   }
 
   _getTemplate() {
@@ -88,26 +86,29 @@ const initialCards = [
     KeyHandle(image, imageBig, imageOverlay);
   }
   _closeImageModal() {
-    closeImageModal(imageButtonClose, imageName,imageBig);
+    closeImageModal(imageButtonClose, imageName, imageBig);
     toggleFormCardReverse(image, imageBig, imageOverlay);
   }
   _setCardEventListeners() {
+    //*remove card
     this._cardNode
       .querySelector(".cards__remove")
       .addEventListener("click", () => {
         this._removeCard();
       });
-
+    //*click like
     this._cardNode
       .querySelector(".cards__heart")
-      .addEventListener("click",  (evt) => {
+      .addEventListener("click", (evt) => {
         this._clickLikeHeard(evt);
       });
+    //*Open image modal
     this._cardNode
       .querySelector(".cards__image")
       .addEventListener("click", () => {
         this._openImageModal();
       });
+    //*close image modal
     imageButtonClose.addEventListener("click", () => {
       this._closeImageModal();
     });
@@ -122,16 +123,12 @@ const initialCards = [
     return this._cardNode;
   }
 }
-  initialCards.map(function (Card) {
-  cardGenerate(Card.name, Card.link)
-  
+initialCards.map(function (Card) {
+  cardGenerate(Card);
 });
 
-export function cardGenerate(titleValue, linkValue) {
-  const newElement = new Card(cardTemplate, titleValue, linkValue);
+export function cardGenerate(data) {
+  const newElement = new Card(cardTemplate, data);
   const cardGenerate = newElement.generateCard();
   userCards.prepend(cardGenerate);
 }
-
-
-
