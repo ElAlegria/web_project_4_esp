@@ -49,7 +49,7 @@ class FormValidator {
     );
   }
 
-//*generate color input valid/invalid
+  //*generate color input valid/invalid
   _setValidationInputs(inputElement, isValid) {
     inputElement.classList.add(
       isValid ? "form__input_valid" : "form__input__invalid"
@@ -59,7 +59,7 @@ class FormValidator {
     );
   }
 
-  //*enable/disabled button form 
+  //*enable/disabled button form
   _buttonToggle(form, formSubmitButton) {
     if (!this._isFormValid(form)) {
       formSubmitButton.disabled = true;
@@ -73,7 +73,6 @@ class FormValidator {
   //*method over for forms
   enableValidation() {
     this._validator(this._form, this._Button);
-
   }
 }
 

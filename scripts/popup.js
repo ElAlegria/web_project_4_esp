@@ -6,6 +6,7 @@ import {
   delateClassInput,
 } from "./Ultis.js";
 import { GenerateValidate } from "./validate.js";
+
 //popup
 const popup = document.querySelector("#form__popup");
 const popupOverlay = popup.querySelector("#form__overlay-popup");
@@ -25,6 +26,9 @@ buttonClose.addEventListener("click", () => {
   delateClassInput(popup);
   popupContainer.reset();
 });
+popupOverlay.addEventListener("click", () => {
+  toggleFormCardReverse(popup, popupContainer, popupOverlay);
+});
 GenerateValidate(popupContainer, popupButtonSubmit);
 
 function editProfile() {
@@ -37,14 +41,12 @@ function editProfile() {
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
 }
-popupOverlay.addEventListener("click", () => {
-  toggleFormCardReverse(popup, popupContainer, popupOverlay);
-});
 popupContainer.addEventListener("submit", (evt) => {
   evt.preventDefault();
   delateClassInput(popup);
   elementDisabled(popupButtonSubmit);
-  editProfile();
+   editProfile();
   toggleFormCardReverse(popup, popupContainer, popupOverlay);
   popupContainer.reset();
 })
+

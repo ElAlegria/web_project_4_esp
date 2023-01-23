@@ -6,6 +6,7 @@ import {
   closeImageModal,
   KeyHandle,
 } from "./Ultis.js";
+// import {cardGenerateForm}from "./index.js";
 
 //Create de card
 const userCards = document.querySelector(".cards");
@@ -21,7 +22,7 @@ const imageOverlay = image.querySelector(".image__overlay");
 const imageButtonClose = image.querySelector(".image__close-button");
 
 //  array cards
-const initialCards = [
+export const initialCards = [
   {
     name: "Valle de Yosemite",
     link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
@@ -47,6 +48,7 @@ const initialCards = [
     link: "https://code.s3.yandex.net/web-code/lago.jpg",
   },
 ];
+
 
 // syntax generate cards
 
@@ -123,12 +125,17 @@ class Card {
     return this._cardNode;
   }
 }
+
+
+
 initialCards.map(function (Card) {
   cardGenerate(Card);
+  
 });
 
 export function cardGenerate(data) {
   const newElement = new Card(cardTemplate, data);
   const cardGenerate = newElement.generateCard();
+  // cardGenerateForm(cardGenerate);
   userCards.prepend(cardGenerate);
 }
