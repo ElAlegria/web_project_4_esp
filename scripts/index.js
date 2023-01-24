@@ -76,7 +76,6 @@ const editProfile = () => {
 };
 
 const editPlaceHolder = () => {
-
   inputName.value = profileName.textContent;
   inputJob.value= profileJob.textContent;
 };
