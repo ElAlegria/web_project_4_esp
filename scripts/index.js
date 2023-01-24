@@ -70,30 +70,42 @@ cardContainer.addEventListener("submit", (event) => {
 });
 
 //popup form
+const editProfile = () => {
+  profileName.textContent = inputName.value;
+  profileJob.textContent = inputJob.value;
+};
+
+const editPlaceHolder = () => {
+  inputName.placeholder = profileName.textContent;
+  inputJob.placeholder = profileJob.textContent;
+};
+const resetInputContent = () =>{
+  setTimeout(() => {
+    popupContainer.reset();
+  }, 1000);
+}
 buttonEdit.addEventListener("click", () => {
   toggleForm(popup, popupContainer);
   KeyHandle(popup, popupContainer, popupOverlay);
+  editPlaceHolder();
 });
+
 buttonClose.addEventListener("click", () => {
   toggleFormCardReverse(popup, popupContainer, popupOverlay);
   elementDisabled(popupButtonSubmit);
   delateClassInput(popup);
-  popupContainer.reset();
+  resetInputContent();
 });
 popupOverlay.addEventListener("click", () => {
   toggleFormCardReverse(popup, popupContainer, popupOverlay);
 });
 GenerateValidate(popupContainer, popupButtonSubmit);
 
-function editProfile() {
-  profileName.textContent = inputName.value;
-  profileJob.textContent = inputJob.value;
-}
 popupContainer.addEventListener("submit", (evt) => {
   evt.preventDefault();
   delateClassInput(popup);
   elementDisabled(popupButtonSubmit);
   editProfile();
   toggleFormCardReverse(popup, popupContainer, popupOverlay);
-  popupContainer.reset();
+resetInputContent();
 });
