@@ -4,9 +4,9 @@ import {
   elementDisabled,
   KeyHandle,
   delateClassInput,
-} from "./Ultis.js";
-import { GenerateValidate } from "./validate.js";
-import { cardGenerate } from "./create-card.js";
+} from "./Utils.js";
+import { GenerateValidate } from "./FormValidator.js";
+import { cardGenerate } from "./Card.js";
 //Form  Modified  cards
 import {
   buttonAdd,
@@ -25,12 +25,21 @@ import {
   buttonEdit,
   inputName,
   inputJob,
+  profileName,
   profileJob,
 } from "./const.js";
-//
+//var Dom
 let storeInputs = {
   name: "",
   link: "",
+};
+const cardValueForm = (data) => {
+  data.name = InputNameCard.value;
+  data.link = inputImageCard.value;
+  setTimeout(() => {
+    data.name = "";
+    data.link = "";
+  }, 1000);
 };
 buttonAdd.addEventListener("click", () => {
   toggleForm(card, cardContainer);
@@ -47,14 +56,6 @@ cardOverlay.addEventListener("click", () => {
   toggleFormCardReverse(card, cardContainer, cardOverlay);
   // cardContainer.reset();
 });
-const cardValueForm = (data) => {
-  data.name = InputNameCard.value;
-  data.link = inputImageCard.value;
-  setTimeout(() => {
-    data.name = "";
-    data.link = "";
-  }, 1000);
-};
 //validate form
 GenerateValidate(card, formButtonSubmit);
 //save card
@@ -69,7 +70,6 @@ cardContainer.addEventListener("submit", (event) => {
 });
 
 //popup form
-
 buttonEdit.addEventListener("click", () => {
   toggleForm(popup, popupContainer);
   KeyHandle(popup, popupContainer, popupOverlay);

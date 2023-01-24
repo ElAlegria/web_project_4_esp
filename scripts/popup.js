@@ -4,14 +4,19 @@ import {
   elementDisabled,
   KeyHandle,
   delateClassInput,
-} from "./Ultis.js";
-import { GenerateValidate } from "./validate.js";
+} from "./Utils.js";
+import { GenerateValidate } from "./FormValidator.js";
 
-// intentando comenzar la class para popup xD
+//? intentando comenzar la class para popup xD
 
-class form{
-  constructor(form){
-    this._formSelector = form
+class form {
+  constructor(form) {
+    this._formSelector = form;
   }
-}
 
+  _OpenForm() {}
+  _closeForm() {}
+  _closeFormOverlay() {}
+
+  enableForm() {}
+}

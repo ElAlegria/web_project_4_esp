@@ -80,9 +80,3 @@ export function GenerateValidate(form, submitButton) {
   const newValidate = new FormValidator(form, submitButton);
   newValidate.enableValidation();
 }
-
-// export function validateForm
-// function isFormValid
-// function toggleButton
-// function setValidationMessage
-// function setValidationInputs

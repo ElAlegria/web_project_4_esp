@@ -28,9 +28,9 @@ export const animationJoinCard = (cardUp, cardLeft, cardBack) => {
 
 //function Image modal
 //open image modal
-export const openImageModal = (imageName, imageBig, link, title) => {
+export const openImageModal = (imageName, imageBig, name,link) => {
   imageName.classList.add("animation__join-back");
-  imageName.textContent = title;
+  imageName.textContent = name;
   imageBig.src = link;
 };
 

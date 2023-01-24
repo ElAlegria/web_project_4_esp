@@ -5,7 +5,7 @@ import {
   openImageModal,
   closeImageModal,
   KeyHandle,
-} from "./Ultis.js";
+} from "./Utils.js";
 import {
   userCards,
   cardTemplate,
@@ -52,7 +52,7 @@ class Card {
   }
   _openImageModal() {
     toggleForm(image, imageBig);
-    openImageModal(imageName, imageBig, this._image, this._title);
+    openImageModal(imageName, imageBig, this._title,this._image);
     KeyHandle(image, imageBig, imageOverlay);
   }
   _closeImageModal() {
