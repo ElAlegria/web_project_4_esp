@@ -6,54 +6,22 @@ import {
   closeImageModal,
   KeyHandle,
 } from "./Ultis.js";
+import {
+  userCards,
+  cardTemplate,
+  image,
+  imageBig,
+  imageName,
+  imageOverlay,
+  imageButtonClose,
+  initialCards,
+} from "./const.js";
 // import {cardGenerateForm}from "./index.js";
-
-//Create de card
-const userCards = document.querySelector(".cards");
-const cardTemplate = document
-  .querySelector(".cards-template")
-  .content.querySelector(".cards__card");
-
-//image modal
-const image = document.querySelector(".image");
-const imageBig = document.querySelector(".image__image-big");
-const imageName = image.querySelector(".image__name");
-const imageOverlay = image.querySelector(".image__overlay");
-const imageButtonClose = image.querySelector(".image__close-button");
-
-//  array cards
-export const initialCards = [
-  {
-    name: "Valle de Yosemite",
-    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-  },
-  {
-    name: "Lago Louise",
-    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg",
-  },
-  {
-    name: "Montañas Calvas",
-    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://code.s3.yandex.net/web-code/latemar.jpg",
-  },
-  {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://code.s3.yandex.net/web-code/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://code.s3.yandex.net/web-code/lago.jpg",
-  },
-];
-
 
 // syntax generate cards
 
 class Card {
-  constructor(cardSelector,data) {
+  constructor(cardSelector, data) {
     this._cardSelector = cardSelector;
     this._title = data.name;
     this._image = data.link;
@@ -126,11 +94,8 @@ class Card {
   }
 }
 
-
-
 initialCards.map(function (Card) {
   cardGenerate(Card);
-  
 });
 
 export function cardGenerate(data) {
