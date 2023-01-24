@@ -76,8 +76,9 @@ const editProfile = () => {
 };
 
 const editPlaceHolder = () => {
-  inputName.placeholder = profileName.textContent;
-  inputJob.placeholder = profileJob.textContent;
+
+  inputName.value = profileName.textContent;
+  inputJob.value= profileJob.textContent;
 };
 const resetInputContent = () =>{
   setTimeout(() => {
@@ -94,7 +95,7 @@ buttonClose.addEventListener("click", () => {
   toggleFormCardReverse(popup, popupContainer, popupOverlay);
   elementDisabled(popupButtonSubmit);
   delateClassInput(popup);
-  resetInputContent();
+  // resetInputContent();
 });
 popupOverlay.addEventListener("click", () => {
   toggleFormCardReverse(popup, popupContainer, popupOverlay);
@@ -107,5 +108,5 @@ popupContainer.addEventListener("submit", (evt) => {
   elementDisabled(popupButtonSubmit);
   editProfile();
   toggleFormCardReverse(popup, popupContainer, popupOverlay);
-resetInputContent();
+// resetInputContent();
 });
