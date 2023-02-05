@@ -1,3 +1,6 @@
+import { GenerateValidate } from "./FormValidator.js";
+import Section from "./Section.js";
+
 import {
   toggleForm,
   toggleFormCardReverse,
@@ -5,8 +8,6 @@ import {
   KeyHandle,
   delateClassInput,
 } from "./Utils.js";
-import { GenerateValidate } from "./FormValidator.js";
-import { cardGenerate } from "./Card.js";
 //Form  Modified  cards
 import {
   buttonAdd,
@@ -27,20 +28,45 @@ import {
   inputJob,
   profileName,
   profileJob,
+  userCards,
+  cardTemplate,
+  initialCards,
 } from "./const.js";
+import { Card } from "./Card.js";
+
 //var Dom
-let storeInputs = {
-  name: "",
-  link: "",
-};
+let storeInputs = [
+  {
+    name: "",
+    link: "",
+  },
+];
+
 const cardValueForm = (data) => {
-  data.name = InputNameCard.value;
-  data.link = inputImageCard.value;
-  setTimeout(() => {
-    data.name = "";
-    data.link = "";
-  }, 1000);
+  data.map(item => {
+    item.name = InputNameCard.value;
+    item.link = inputImageCard.value;
+  });  
+
 };
+
+function sectionCard(renderer) {
+  const CardSection = new Section(
+    {
+      items: renderer,
+      renderer: (data) => {
+        const cardGenerate = new Card(cardTemplate, data);
+        const newElement = cardGenerate.generateCard();
+        CardSection.addItem(newElement);
+      },
+    },
+    userCards
+  );
+  CardSection.renderer();
+}
+
+sectionCard(initialCards);
+
 buttonAdd.addEventListener("click", () => {
   toggleForm(card, cardContainer);
   KeyHandle(card, cardContainer, cardOverlay);
@@ -64,7 +90,7 @@ cardContainer.addEventListener("submit", (event) => {
   elementDisabled(formButtonSubmit);
   toggleFormCardReverse(card, cardContainer, cardOverlay);
   cardValueForm(storeInputs);
-  cardGenerate(storeInputs);
+  sectionCard(storeInputs);
   delateClassInput(card);
   cardContainer.reset();
 });
@@ -77,7 +103,7 @@ const editProfile = () => {
 
 const editPlaceHolder = () => {
   inputName.value = profileName.textContent;
-  inputJob.value= profileJob.textContent;
+  inputJob.value = profileJob.textContent;
 };
 
 buttonEdit.addEventListener("click", () => {

@@ -7,20 +7,18 @@ import {
   KeyHandle,
 } from "./Utils.js";
 import {
-  userCards,
-  cardTemplate,
   image,
   imageBig,
   imageName,
   imageOverlay,
   imageButtonClose,
-  initialCards,
 } from "./const.js";
+
 // import {cardGenerateForm}from "./index.js";
 
 // syntax generate cards
 
-class Card {
+export class Card {
   constructor(cardSelector, data) {
     this._cardSelector = cardSelector;
     this._title = data.name;
@@ -52,7 +50,7 @@ class Card {
   }
   _openImageModal() {
     toggleForm(image, imageBig);
-    openImageModal(imageName, imageBig, this._title,this._image);
+    openImageModal(imageName, imageBig, this._title, this._image);
     KeyHandle(image, imageBig, imageOverlay);
   }
   _closeImageModal() {
@@ -94,13 +92,13 @@ class Card {
   }
 }
 
-initialCards.map(function (Card) {
-  cardGenerate(Card);
-});
+//  initialCards.map(function (Card) {
+//    cardGenerate(Card);
+//  });
 
-export function cardGenerate(data) {
-  const newElement = new Card(cardTemplate, data);
-  const cardGenerate = newElement.generateCard();
-  // cardGenerateForm(cardGenerate);
-  userCards.prepend(cardGenerate);
-}
+// export function cardGenerate(data) {
+//   const newElement = new Card(cardTemplate, data);
+//   const cardGenerate = newElement.generateCard();
+//   userCards.prepend(cardGenerate);
+// }
+

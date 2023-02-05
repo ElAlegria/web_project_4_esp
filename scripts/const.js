@@ -25,6 +25,7 @@ export const profileName = document.querySelector(".profile__name");
 
 // const create card//Create de card
 export const userCards = document.querySelector(".cards");
+
 export const cardTemplate = document
   .querySelector(".cards-template")
   .content.querySelector(".cards__card");

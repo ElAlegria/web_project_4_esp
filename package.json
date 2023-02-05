@@ -1,0 +1,19 @@
+{
+  "name": "web_project_4_esp",
+  "version": "1.0.0",
+  "description": "Esta landing es un recopilatorio del viaje de un usuario alrededor de los Estados Unidos.\r Todas las fotos han documentado diversas reservas naturales desde lagos hasta montañas.\r Actualmente esta landing te permite colocar tu nombre y ocupación a travez de un formulario\r emergente, asi que animate!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElAlegria/web_project_4_esp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElAlegria/web_project_4_esp/issues"
+  },
+  "homepage": "https://github.com/ElAlegria/web_project_4_esp#readme"
+}
