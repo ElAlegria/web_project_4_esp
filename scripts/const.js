@@ -1,22 +1,22 @@
 //const Form cards
 export const buttonAdd = document.querySelector(".profile__add-button");
-export const card = document.querySelector("#form-cards");
-export const cardOverlay = card.querySelector("#form__overlay-cards");
+export const card = document.querySelector("#cards");
+export const cardOverlay = card.querySelector("#overlay__cards");
 export const cardContainer = document.forms.formCards;
-export const formButtonSubmit = cardContainer.querySelector(".form__button");
-export const buttonCloseCard = card.querySelector("#form__close-icon-cards");
+export const formButtonSubmit = cardContainer.querySelector("#button__submit-cards");
+export const buttonCloseCard = card.querySelector("#button__Close-cards");
 export const inputImageCard = cardContainer.querySelector("#form__image");
 export const InputNameCard = cardContainer.querySelector("#form__title");
 //
 //const form modified popup
-export const popup = document.querySelector("#form__popup");
+export const popup = document.querySelector("#popup");
 export const popupOverlay = popup.querySelector("#form__overlay-popup");
 //popup form
 export const popupContainer = document.forms.formEditProfile;
 export const popupButtonSubmit = popupContainer.querySelector(
-  "#form__button-popup"
+  "#button__submit-popup"
 );
-export const buttonClose = popup.querySelector("#form__close-icon-popup");
+export const buttonClose = popup.querySelector("#button__Close-popup");
 export const buttonEdit = document.querySelector(".profile__edit-button");
 export const inputName = popupContainer.querySelector("#form__name-popup");
 export const inputJob = popupContainer.querySelector("#form__job-popup");

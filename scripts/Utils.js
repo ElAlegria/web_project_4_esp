@@ -1,11 +1,13 @@
-//open form
-export const toggleForm = (Object, content) => {
-  Object.classList.add("animation__show");
-  content.classList.add("animation__scale");
+import Form from "./popup.js";
+
+//?open form
+export const openElement = (object, container) => {
+  object.classList.add("animation__show");
+  container.classList.add("animation__scale");
 };
 
-//close form
-export const toggleFormCardReverse = (object, content, overlay) => {
+//?close form
+export const closeElement = (object, content, overlay) => {
   overlay.classList.add("animation__show-reverse");
   content.classList.add("animation__position-right");
   content.classList.remove("animation__scale");
@@ -16,25 +18,30 @@ export const toggleFormCardReverse = (object, content, overlay) => {
   }, 1100);
 };
 
-//animation creation cards
-export const animationJoinCard = (cardUp, cardLeft, cardBack) => {
-  cardUp.classList // .querySelector(".cards__image")
+//?animation creation cards
+export const animationJoin = (elementUp, elementLeft, elementBack) => {
+  elementUp.classList // .querySelector(".cards__image")
     .add("animation__join-up");
-  cardLeft.classList // .querySelector(".cards__remove")
+  elementLeft.classList // .querySelector(".cards__remove")
     .add("animation__join-left");
-  cardBack.classList // .querySelector(".cards__content")
+  elementBack.classList // .querySelector(".cards__content")
     .add("animation__join-back");
 };
+//!generate popups
+export function generatePopup(Element) {
+  const generatePopup = new Form(Element);
+  return generatePopup.setEventListeners();
+}
 
-//function Image modal
-//open image modal
-export const openImageModal = (imageName, imageBig, name,link) => {
+//*function Image modal
+//?open image modal
+export const openImageModal = (imageName, imageBig, name, link) => {
   imageName.classList.add("animation__join-back");
   imageName.textContent = name;
   imageBig.src = link;
 };
 
-//close image
+//?close image
 export const closeImageModal = (ButtonClose, imageName, imageBig) => {
   imageName.classList.remove("animation__join-back");
   ButtonClose.classList.add("animation__show-reverse");
@@ -47,8 +54,7 @@ export const closeImageModal = (ButtonClose, imageName, imageBig) => {
   }, 1200);
 };
 
-//function form validity
-//function delate class input
+//?function delate class input
 export function delateClassInput(forms) {
   forms.querySelectorAll(".form__input").forEach((event) => {
     const messageError = forms.querySelector(
@@ -62,16 +68,16 @@ export function delateClassInput(forms) {
   });
 }
 
-//function disable button
+//?function disable button
 export const elementDisabled = (elementDisabled) => {
   elementDisabled.disabled = true;
   elementDisabled.classList.add("form__button_disabled");
 };
-//function close keyboard
+//?function close keyboard
 export const KeyHandle = (object, content, overlay) => {
   window.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
-      toggleFormCardReverse(object, content, overlay);
+      closeElement(object, content, overlay);
     }
   });
 };

@@ -1,7 +1,7 @@
 import {
-  toggleForm,
-  toggleFormCardReverse,
-  animationJoinCard,
+  openElement,
+  closeElement,
+  animationJoin,
   openImageModal,
   closeImageModal,
   KeyHandle,
@@ -46,16 +46,16 @@ export class Card {
     const cardsImage = this._cardNode.querySelector(".cards__image");
     const cardsContent = this._cardNode.querySelector(".cards__content");
     const cardsRemoveButton = this._cardNode.querySelector(".cards__remove");
-    animationJoinCard(cardsImage, cardsRemoveButton, cardsContent);
+    animationJoin(cardsImage, cardsRemoveButton, cardsContent);
   }
   _openImageModal() {
-    toggleForm(image, imageBig);
+    openElement(image, imageBig);
     openImageModal(imageName, imageBig, this._title, this._image);
     KeyHandle(image, imageBig, imageOverlay);
   }
   _closeImageModal() {
     closeImageModal(imageButtonClose, imageName, imageBig);
-    toggleFormCardReverse(image, imageBig, imageOverlay);
+    closeElement(image, imageBig, imageOverlay);
   }
   _setCardEventListeners() {
     //*remove card

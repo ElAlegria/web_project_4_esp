@@ -2,11 +2,12 @@ import { GenerateValidate } from "./FormValidator.js";
 import Section from "./Section.js";
 
 import {
-  toggleForm,
-  toggleFormCardReverse,
+  openElement,
+  closeElement,
   elementDisabled,
   KeyHandle,
   delateClassInput,
+  generatePopup,
 } from "./Utils.js";
 //Form  Modified  cards
 import {
@@ -35,19 +36,18 @@ import {
 import { Card } from "./Card.js";
 
 //var Dom
-let storeInputs = [
+let CardData = [
   {
     name: "",
     link: "",
   },
 ];
 
-const cardValueForm = (data) => {
-  data.map(item => {
-    item.name = InputNameCard.value;
-    item.link = inputImageCard.value;
-  });  
-
+const cardValueForm = (name, image, data) => {
+  data.map((item) => {
+    item.name = name.value;
+    item.link = image.value;
+  });
 };
 
 function sectionCard(renderer) {
@@ -68,19 +68,7 @@ function sectionCard(renderer) {
 sectionCard(initialCards);
 
 buttonAdd.addEventListener("click", () => {
-  toggleForm(card, cardContainer);
-  KeyHandle(card, cardContainer, cardOverlay);
-});
-buttonCloseCard.addEventListener("click", () => {
-  toggleFormCardReverse(card, cardContainer, cardOverlay);
-  elementDisabled(formButtonSubmit);
-  delateClassInput(card);
-  cardContainer.reset();
-});
-
-cardOverlay.addEventListener("click", () => {
-  toggleFormCardReverse(card, cardContainer, cardOverlay);
-  // cardContainer.reset();
+  generatePopup(card);
 });
 //validate form
 GenerateValidate(card, formButtonSubmit);
@@ -88,9 +76,9 @@ GenerateValidate(card, formButtonSubmit);
 cardContainer.addEventListener("submit", (event) => {
   event.preventDefault();
   elementDisabled(formButtonSubmit);
-  toggleFormCardReverse(card, cardContainer, cardOverlay);
-  cardValueForm(storeInputs);
-  sectionCard(storeInputs);
+  closeElement(card, cardContainer, cardOverlay);
+  cardValueForm(InputNameCard, inputImageCard, CardData);
+  sectionCard(CardData);
   delateClassInput(card);
   cardContainer.reset();
 });
@@ -107,19 +95,10 @@ const editPlaceHolder = () => {
 };
 
 buttonEdit.addEventListener("click", () => {
-  toggleForm(popup, popupContainer);
-  KeyHandle(popup, popupContainer, popupOverlay);
+  generatePopup(popup);
   editPlaceHolder();
 });
 
-buttonClose.addEventListener("click", () => {
-  toggleFormCardReverse(popup, popupContainer, popupOverlay);
-  elementDisabled(popupButtonSubmit);
-  delateClassInput(popup);
-});
-popupOverlay.addEventListener("click", () => {
-  toggleFormCardReverse(popup, popupContainer, popupOverlay);
-});
 GenerateValidate(popupContainer, popupButtonSubmit);
 
 popupContainer.addEventListener("submit", (evt) => {
@@ -127,5 +106,5 @@ popupContainer.addEventListener("submit", (evt) => {
   delateClassInput(popup);
   elementDisabled(popupButtonSubmit);
   editProfile();
-  toggleFormCardReverse(popup, popupContainer, popupOverlay);
+  closeElement(popup, popupContainer, popupOverlay);
 });

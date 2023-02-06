@@ -12,7 +12,7 @@
     opacity: 100%;
   }
 }
-@keyframes opacityreverses {
+@keyframes opacityReverses {
   0% {
     /* scale: 1; */
     opacity: 100%;
@@ -32,5 +32,5 @@
   animation: opacity, 0.9s linear;
 }
 .animation__show-reverse {
-  animation: opacityreverses 0.9s linear forwards;
+  animation: opacityReverses 0.9s linear forwards;
 }
