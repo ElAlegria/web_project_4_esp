@@ -1,18 +1,4 @@
-import {
-  openElement,
-  closeElement,
-  animationJoin,
-  openImageModal,
-  closeImageModal,
-  KeyHandle,
-} from "./Utils.js";
-import {
-  image,
-  imageBig,
-  imageName,
-  imageOverlay,
-  imageButtonClose,
-} from "./const.js";
+import { animationJoin } from "./Utils.js";
 
 // import {cardGenerateForm}from "./index.js";
 
@@ -48,15 +34,14 @@ export class Card {
     const cardsRemoveButton = this._cardNode.querySelector(".cards__remove");
     animationJoin(cardsImage, cardsRemoveButton, cardsContent);
   }
-  _openImageModal() {
-    openElement(image, imageBig);
-    openImageModal(imageName, imageBig, this._title, this._image);
-    KeyHandle(image, imageBig, imageOverlay);
-  }
-  _closeImageModal() {
-    closeImageModal(imageButtonClose, imageName, imageBig);
-    closeElement(image, imageBig, imageOverlay);
-  }
+  //  _openImageModal() {
+  //    openElement(image, imageBig);
+  //    KeyHandle(image, imageBig, imageOverlay);
+  //  }
+  //  _closeImageModal() {
+  //  closeImageModal(imageButtonClose, imageName, imageBig);
+  //    closeElement(image, imageBig, imageOverlay);
+  //  }
   _setCardEventListeners() {
     //*remove card
     this._cardNode
@@ -70,16 +55,16 @@ export class Card {
       .addEventListener("click", (evt) => {
         this._clickLikeHeard(evt);
       });
-    //*Open image modal
-    this._cardNode
-      .querySelector(".cards__image")
-      .addEventListener("click", () => {
-        this._openImageModal();
-      });
-    //*close image modal
-    imageButtonClose.addEventListener("click", () => {
-      this._closeImageModal();
-    });
+    // //*Open image modal
+    // this._cardNode
+    //   .querySelector(".cards__image")
+    //   .addEventListener("click", () => {
+    //     this._openImageModal();
+    //   });
+    // //*close image modal
+    // this._imageButtonClose.addEventListener("click", () => {
+    //   this._closeImageModal();
+    // });
   }
 
   generateCard() {
@@ -91,14 +76,3 @@ export class Card {
     return this._cardNode;
   }
 }
-
-//  initialCards.map(function (Card) {
-//    cardGenerate(Card);
-//  });
-
-// export function cardGenerate(data) {
-//   const newElement = new Card(cardTemplate, data);
-//   const cardGenerate = newElement.generateCard();
-//   userCards.prepend(cardGenerate);
-// }
-

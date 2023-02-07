@@ -1,12 +1,43 @@
-import Form from "./popup.js";
+import Popups from "./Popups/popup.js";
+import PopupWithImage from "./Popups/PopupWithImage.js";
 
-//?open form
+//!important
+
+//!generate popups
+export function generatePopup(Element) {
+  const generatePopup = new Popups(Element);
+  return generatePopup.setEventListeners();
+}
+//!generate Modal Popup
+export function modalPopup (newElement,data,imagePopup){
+  const generateModalPopup = new PopupWithImage(data, imagePopup);
+  generateModalPopup.setEventListeners(newElement);
+}
+//*function Image modal
+//?open image modal
+ export const openImageModal = (imageName) => {
+   imageName.classList.add("animation__join-back");
+ };
+
+ //?close image
+ export const closeImageModal = (ButtonClose, imageName) => {
+   imageName.classList.remove("animation__join-back");
+   ButtonClose.classList.add("animation__show-reverse");
+   imageName.classList.add("animation__show-reverse");
+   setTimeout(() => {
+     ButtonClose.classList.remove("animation__show-reverse");
+     imageName.classList.remove("animation__show-reverse");
+   }, 1200);
+ };
+
+ //! Open/close
+//?open
 export const openElement = (object, container) => {
   object.classList.add("animation__show");
   container.classList.add("animation__scale");
 };
 
-//?close form
+//?close
 export const closeElement = (object, content, overlay) => {
   overlay.classList.add("animation__show-reverse");
   content.classList.add("animation__position-right");
@@ -18,6 +49,7 @@ export const closeElement = (object, content, overlay) => {
   }, 1100);
 };
 
+//!create Card animations
 //?animation creation cards
 export const animationJoin = (elementUp, elementLeft, elementBack) => {
   elementUp.classList // .querySelector(".cards__image")
@@ -26,32 +58,6 @@ export const animationJoin = (elementUp, elementLeft, elementBack) => {
     .add("animation__join-left");
   elementBack.classList // .querySelector(".cards__content")
     .add("animation__join-back");
-};
-//!generate popups
-export function generatePopup(Element) {
-  const generatePopup = new Form(Element);
-  return generatePopup.setEventListeners();
-}
-
-//*function Image modal
-//?open image modal
-export const openImageModal = (imageName, imageBig, name, link) => {
-  imageName.classList.add("animation__join-back");
-  imageName.textContent = name;
-  imageBig.src = link;
-};
-
-//?close image
-export const closeImageModal = (ButtonClose, imageName, imageBig) => {
-  imageName.classList.remove("animation__join-back");
-  ButtonClose.classList.add("animation__show-reverse");
-  imageName.classList.add("animation__show-reverse");
-  setTimeout(() => {
-    ButtonClose.classList.remove("animation__show-reverse");
-    imageName.classList.remove("animation__show-reverse");
-    imageName.textContent = "";
-    imageBig.src = "";
-  }, 1200);
 };
 
 //?function delate class input
@@ -68,6 +74,7 @@ export function delateClassInput(forms) {
   });
 }
 
+//!form button disabled
 //?function disable button
 export const elementDisabled = (elementDisabled) => {
   elementDisabled.disabled = true;

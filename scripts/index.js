@@ -1,29 +1,20 @@
 import { GenerateValidate } from "./FormValidator.js";
 import Section from "./Section.js";
+import { Card } from "./Card.js";
+import PopupWithImage from "./Popups/PopupWithImage.js";
 
-import {
-  openElement,
-  closeElement,
-  elementDisabled,
-  KeyHandle,
-  delateClassInput,
-  generatePopup,
-} from "./Utils.js";
+import { elementDisabled, delateClassInput, generatePopup, modalPopup } from "./Utils.js";
 //Form  Modified  cards
 import {
   buttonAdd,
   card,
-  cardOverlay,
   cardContainer,
   formButtonSubmit,
-  buttonCloseCard,
   inputImageCard,
   InputNameCard,
   popup,
   popupContainer,
   popupButtonSubmit,
-  popupOverlay,
-  buttonClose,
   buttonEdit,
   inputName,
   inputJob,
@@ -32,14 +23,14 @@ import {
   userCards,
   cardTemplate,
   initialCards,
+  image,
 } from "./const.js";
-import { Card } from "./Card.js";
 
 //var Dom
 let CardData = [
   {
-    name: "",
-    link: "",
+    name: "Valle de Yosemite",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
   },
 ];
 
@@ -55,9 +46,12 @@ function sectionCard(renderer) {
     {
       items: renderer,
       renderer: (data) => {
+        //!generate Card
         const cardGenerate = new Card(cardTemplate, data);
         const newElement = cardGenerate.generateCard();
         CardSection.addItem(newElement);
+        //!generate Popup
+       modalPopup(newElement,data,image)
       },
     },
     userCards
@@ -65,7 +59,20 @@ function sectionCard(renderer) {
   CardSection.renderer();
 }
 
-sectionCard(initialCards);
+
+sectionCard(initialCards)
+// sectionCard(initialCards);
+// function modalPopup(renderer) {
+//   const modalPopup = new Section({
+//     items: renderer,
+//     renderer: (data) => {
+//       const generateModalPopup = new PopupWithImage(data, image);
+//       generateModalPopup.setEventListeners();
+//     },
+//   });
+//   modalPopup.renderer();
+// }
+// modalPopup(initialCards);
 
 buttonAdd.addEventListener("click", () => {
   generatePopup(card);
@@ -76,7 +83,6 @@ GenerateValidate(card, formButtonSubmit);
 cardContainer.addEventListener("submit", (event) => {
   event.preventDefault();
   elementDisabled(formButtonSubmit);
-  closeElement(card, cardContainer, cardOverlay);
   cardValueForm(InputNameCard, inputImageCard, CardData);
   sectionCard(CardData);
   delateClassInput(card);
@@ -97,14 +103,12 @@ const editPlaceHolder = () => {
 buttonEdit.addEventListener("click", () => {
   generatePopup(popup);
   editPlaceHolder();
+  GenerateValidate(popupContainer, popupButtonSubmit);
 });
-
-GenerateValidate(popupContainer, popupButtonSubmit);
 
 popupContainer.addEventListener("submit", (evt) => {
   evt.preventDefault();
   delateClassInput(popup);
   elementDisabled(popupButtonSubmit);
   editProfile();
-  closeElement(popup, popupContainer, popupOverlay);
 });
