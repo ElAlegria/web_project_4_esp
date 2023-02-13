@@ -14,11 +14,21 @@ Tecnologias Utilizadas 🛠️
 1. JavaScript
    - Este proyecto implementa EventListeners para realizar ciertas acciones en funcion de
      los eventos. Actualmente, este proyecto abrirá un editor cuando se haga clic en el botón "editar"
-     y permitira al usuario colocar su nombre y ocupacion, al igual que tendra un creador de tarjetas personalizado para que el usuario
-     cree sus cartas a su gusto.
+     y permitira al usuario colocar su nombre y ocupacion.
+   - La actualización reciente agrega funcionalidad al botón "+". Los usuarios ahora pueden ingresar 
+   sus propias fotos desde direcciones URL externas.
+   - Los usuarios ahora pueden examinar cada foto en su relación de aspecto original haciendo clic 
+   en una imagen para ampliarla.
+   - La funcionalidad "Me gusta" y "Eliminar" se ha actualizado para permitir que los usuarios interactúen 
+   con las publicaciones iniciales.
 2. Diseño Responsivo
    - El sitio web se ha desarrollado siguiendo el primer enfoque de un dispositivo móvil.
-   - El sitio web está diseñado para escalar sin problemas en diferentes resoluciones
+   - El sitio web está diseñado para escalar sin problemas en:
+     - 1280px y superior (portátiles estándar y superiores).
+     - De 1024px a 1280px (desde una tablet en horizontal hasta un portátil estándar).
+     - De 768px a 1024px (de una tablet en vertical a una tablet en horizontal).
+     - De 425px a 768px (desde un gran smartphone hasta una tablet en vertical).
+     - Hasta 425px (dispositivos móviles).
 3. CCS Grid
 4. CCS Flexbox
 5. Optimización de fuentes para dispositivos con diferentes resoluciones
@@ -32,18 +42,14 @@ Tecnologias Utilizadas 🛠️
 
 **Documento con Especificaciones del Proyecto**
 
-- [Proyecto en Figma](https://www.figma.com/file/LDMgqWesKpQkIwhOfEBuTS/WEB%2C-Sprint-5%3A-Around-The-U.S.-%7C-desktop-%2B-mobile?node-id=0%3A1)
-## mejoras echas
-- se mejoro la fluides de las animaciones
-- se agrego un validador para cada formulario
-- ajuste en la sintaxis del codigo
+- [Proyecto en Figma .v1](https://www.figma.com/file/LDMgqWesKpQkIwhOfEBuTS/WEB%2C-Sprint-5%3A-Around-The-U.S.-%7C-desktop-%2B-mobile?node-id=0%3A1)
+- [Proyecto en Figma .v2](https://www.figma.com/file/ioanjgLLuVNMBLs1z2woGZ/WEB%2C-Sprint-5%3A-Alrededor-de-los-EE.UU.-%7C-desktop-%2B-mobile?node-id=0%3A1&t=ogdDXMDoz7uB1jIz-1)
 
 ## Mejoras futuras 🔍
-- incluir un boton para eliminar todas las tarjetas al mismo tiempo
+
 - Permitir a los usuarios actualizar el avatar de su perfil.
 - Permitir agregar o quitar tarjetas con los lugares que han visitado nuevos usuarios.
-- Animation extra para el usuario
 
 ## Proyecto en Vivo 💻
-
-- [Disfrutalo en vivo!](https://elalegria.github.io/web_project_4_esp/)
+<!-- mi repo tiene algunos problemas y no me deja pusharlo y se lo estoy mandando por .zip y link tenia algunos problemas y no se genero bien perdon -->
+- [Disfrutalo en vivo!](https://firhoe.github.io/web_project_4_esp/)
