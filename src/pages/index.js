@@ -1,5 +1,8 @@
 import './index.css';
-// una disculpa mande el archivo equivocado, sorri!
+import Api from '../Components/Api';
+
+const serverApi = new Api()
+serverApi.testedDelate()
 import {
   initialCards,
   selectors,
@@ -13,10 +16,14 @@ import FormValidator from '../Components/FormValidator.js';
 import previewPopup from '../Components/PopupWithImage.js';
 import Section from '../Components/Section.js';
 import UserInfo from '../Components/UserInfo.js';
+import Popup from '../Components/Popup';
 
 export const addCardPopup = new PopupWithForm('.popup_add_card', handleAddCardSubmit);
 
 export const editPopup = new PopupWithForm('.popup_edit_profile', updateUserInfo);
+
+export const delatePopup = new Popup('.popup_delate_card', updateUserInfo);
+delatePopup.setEventListeners()
 
 // renderiza las 6 tarjetas iniciales aparescan, tiene habilitado el boton like y eliminar card
 export const cardSection = new Section(
