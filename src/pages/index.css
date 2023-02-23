@@ -20,7 +20,10 @@
 
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__container/profile__container.css);
+@import url(../blocks/profile/__edit/profile__edit.css);
 @import url(../blocks/profile/__image/profile__image.css);
+@import url(../blocks/profile/__overlay-editt/profile__overlay-edit);
+@import url(../blocks/profile/__image-edit/image-edit.css);
 @import url(../blocks/profile/__information/profile__information.css);
 @import url(../blocks/profile/__wrap/profile__wrap.css);
 @import url(../blocks/profile/__user/profile__user.css);

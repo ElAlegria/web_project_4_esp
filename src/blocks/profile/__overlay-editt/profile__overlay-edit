@@ -1,0 +1,7 @@
+.profile__overlay-edit{
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}

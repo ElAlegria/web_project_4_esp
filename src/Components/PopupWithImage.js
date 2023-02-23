@@ -15,6 +15,10 @@ class PopupWithImage extends Popup {
   close() {
     super.close();
   }
+  setEventListeners({title, image}){
+    super.setEventListeners()
+    this.open({title, image})
+  }
 }
 
 const previewPopup = new PopupWithImage('.popup_preview_image');

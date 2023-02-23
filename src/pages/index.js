@@ -1,29 +1,39 @@
-import './index.css';
-import Api from '../Components/Api';
-
-const serverApi = new Api()
-serverApi.testedDelate()
+import "./index.css";
+// const serverApi = new Api()
 import {
   initialCards,
   selectors,
   formsElements,
   updateUserInfo,
   handleAddCardSubmit,
-} from '../Components/utils.js';
-import Card from '../Components/Card.js';
-import PopupWithForm from '../Components/PopupWithForm.js';
-import FormValidator from '../Components/FormValidator.js';
-import previewPopup from '../Components/PopupWithImage.js';
-import Section from '../Components/Section.js';
-import UserInfo from '../Components/UserInfo.js';
-import Popup from '../Components/Popup';
+  handleEditSubmit,
+  handleEditImage,
+} from "../Components/utils.js";
+import Card from "../Components/Card.js";
+import PopupWithForm from "../Components/PopupWithForm.js";
+import FormValidator from "../Components/FormValidator.js";
+import previewPopup from "../Components/PopupWithImage.js";
+import Section from "../Components/Section.js";
+import UserInfo from "../Components/UserInfo.js";
+import Popup from "../Components/Popup";
 
-export const addCardPopup = new PopupWithForm('.popup_add_card', handleAddCardSubmit);
+export const addCardPopup = new PopupWithForm(
+  ".popup_add_card",
+  handleAddCardSubmit
+);
 
-export const editPopup = new PopupWithForm('.popup_edit_profile', updateUserInfo);
+export const editPopup = new PopupWithForm(
+  ".popup_edit_profile",
+  handleEditSubmit
+);
 
-export const delatePopup = new Popup('.popup_delate_card', updateUserInfo);
-delatePopup.setEventListeners()
+export const delatePopup = new Popup(".popup_delate_card", updateUserInfo);
+delatePopup.setEventListeners();
+
+export const editImagePopup = new PopupWithForm(
+  "#edit-image-profile",
+  handleEditImage
+);
 
 // renderiza las 6 tarjetas iniciales aparescan, tiene habilitado el boton like y eliminar card
 export const cardSection = new Section(
@@ -33,25 +43,26 @@ export const cardSection = new Section(
       const newCard = new Card(
         {
           data,
-          handleCardClick: ({title, image}) => {
-            previewPopup.open({title, image});
+          handleCardClick: ({ title, image }) => {
+            previewPopup.setEventListeners({ title, image });
           },
         },
-        '.card-template'
+        ".card-template"
       );
       const cardElement = newCard.generateCard();
       cardSection.addItem(cardElement);
     },
   },
-  '.cards__container'
+  ".cards__container"
 );
 
 cardSection.renderer();
 
 // instancia para la clase UserInfo
 const profileUser = new UserInfo({
-  userName: '.profile__user',
-  userOcupation: '.profile__profession',
+  userName: ".profile__user",
+  userOcupation: ".profile__profession",
+  userImage: ".profile__image",
 });
 
 profileUser.getUserInfo();
@@ -63,30 +74,22 @@ formsElements.forEach((form) => {
 });
 
 // abrir formulario agregar tarjeta
-const addCardButton = document.querySelector('.profile__add-button');
-addCardButton.addEventListener('click', (evt) => {
+const addCardButton = document.querySelector(".profile__add-button");
+addCardButton.addEventListener("click", (evt) => {
   evt.preventDefault();
-  addCardPopup.open();
+  addCardPopup.setEventListeners();
+  addCardPopup.reset()
 });
 
 // abrir formulario editar perfil
-const editButton = document.querySelector('.profile__edit-button');
-editButton.addEventListener('click', (evt) => {
+const editButton = document.querySelector(".profile__edit-button");
+editButton.addEventListener("click", (evt) => {
   evt.preventDefault();
-  editPopup.open();
+  editPopup.setEventListeners();
 });
 
-// variables para agarrar los backgrounds de cada popup
-const previewBackground = document.querySelector('#popup__background-preview');
-const editBackground = document.querySelector('#popup__background-edit');
-const addBackground = document.querySelector('#popup__background-add');
-
-// agregar evento de popup para que se cierre formulario si haces click fuera de el
-previewBackground.addEventListener('click', () => previewPopup.close());
-editBackground.addEventListener('click', () => editPopup.close());
-addBackground.addEventListener('click', () => addCardPopup.close());
-
-// llamas a los eventos para que cierren los popups si haces click fuera de el
-addCardPopup.setEventListeners();
-editPopup.setEventListeners();
-previewPopup.setEventListeners();
+const editImageProfile = document.querySelector(".profile__edit");
+editImageProfile.addEventListener("click", () => {
+  editImagePopup.setEventListeners();
+  editImagePopup.reset()
+});
