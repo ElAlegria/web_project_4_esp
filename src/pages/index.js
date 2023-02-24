@@ -1,5 +1,4 @@
 import "./index.css";
-// const serverApi = new Api()
 import {
   initialCards,
   selectors,
@@ -16,6 +15,7 @@ import previewPopup from "../Components/PopupWithImage.js";
 import Section from "../Components/Section.js";
 import UserInfo from "../Components/UserInfo.js";
 import Popup from "../Components/Popup";
+import Api from "../Components/Api";
 
 export const addCardPopup = new PopupWithForm(
   ".popup_add_card",
@@ -35,6 +35,22 @@ export const editImagePopup = new PopupWithForm(
   handleEditImage
 );
 
+const apiUser = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/web_es_cohort_04",
+  headers: {
+    authorization: "7b89216e-03f6-4244-8235-930eb464c231",
+    "Content-Type": "application/json",
+  },
+});
+const profileUser = new UserInfo({
+  userName: ".profile__user",
+  userOcupation: ".profile__profession",
+  userImage: ".profile__image",
+});
+
+apiUser.getUserProfile().then((json) => {
+  profileUser.setUserInfo(json);
+});
 // renderiza las 6 tarjetas iniciales aparescan, tiene habilitado el boton like y eliminar card
 export const cardSection = new Section(
   {
@@ -46,6 +62,12 @@ export const cardSection = new Section(
           handleCardClick: ({ title, image }) => {
             previewPopup.setEventListeners({ title, image });
           },
+          handleTrashButton: () => {
+            apiUser.handleDelateCard(data._id).then(() => {
+              data.remove();
+            });
+          },
+          handleLikeButton: () => {},
         },
         ".card-template"
       );
@@ -59,13 +81,6 @@ export const cardSection = new Section(
 cardSection.renderer();
 
 // instancia para la clase UserInfo
-const profileUser = new UserInfo({
-  userName: ".profile__user",
-  userOcupation: ".profile__profession",
-  userImage: ".profile__image",
-});
-
-profileUser.getUserInfo();
 
 // instancia para la clase FormValidator
 formsElements.forEach((form) => {
@@ -78,7 +93,7 @@ const addCardButton = document.querySelector(".profile__add-button");
 addCardButton.addEventListener("click", (evt) => {
   evt.preventDefault();
   addCardPopup.setEventListeners();
-  addCardPopup.reset()
+  addCardPopup.reset();
 });
 
 // abrir formulario editar perfil
@@ -91,5 +106,5 @@ editButton.addEventListener("click", (evt) => {
 const editImageProfile = document.querySelector(".profile__edit");
 editImageProfile.addEventListener("click", () => {
   editImagePopup.setEventListeners();
-  editImagePopup.reset()
+  editImagePopup.reset();
 });

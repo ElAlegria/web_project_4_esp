@@ -1,10 +1,9 @@
- class Api {
+export default class Api {
   constructor(options) {
     this.options = options;
   }
   getUserProfile() {
-    fetch("https://around.nomoreparties.co/v1/web_es_cohort_04/users/me", {
-      method: "GET",
+    return fetch("https://around.nomoreparties.co/v1/web_es_cohort_04/users/me", {
       headers: {
         authorization: "7b89216e-03f6-4244-8235-930eb464c231",
       },
@@ -16,7 +15,7 @@
     });
   }
   getInitialCards() {
-    fetch("https://around.nomoreparties.co/v1/web_es_cohort_04/cards", {
+    return fetch("https://around.nomoreparties.co/v1/web_es_cohort_04/cards", {
       method: "GET",
       headers: {
         authorization: "7b89216e-03f6-4244-8235-930eb464c231",
@@ -29,7 +28,7 @@
     });
   }
   handleEditProfile(value) {
-    fetch("https://around.nomoreparties.co/v1/web_es_cohort_04/users/me", {
+    return fetch("https://around.nomoreparties.co/v1/web_es_cohort_04/users/me", {
       method: "PATCH",
       headers: {
         authorization: "7b89216e-03f6-4244-8235-930eb464c231",
@@ -82,7 +81,7 @@
     });
   }
   handleLikeCard(cardId) {
-    fetch(
+    return fetch(
       `https://around.nomoreparties.co/v1/web_es_cohort_04/cards/likes/${cardId}`,
       {
         method: "PUT",
@@ -98,7 +97,7 @@
     });
   }
   handleUnLikeCard(cardId) {
-    fetch(
+    return fetch(
       `https://around.nomoreparties.co/v1/web_es_cohort_04/cards/likes/${cardId}`,
       {
         method: "DELETE",
@@ -115,7 +114,7 @@
   }
 
   handleEditImageProfile(value) {
-    fetch(
+    return fetch(
       "https://around.nomoreparties.co/v1/web_es_cohort_04/users/me/avatar",
       {
         method: "PATCH",
@@ -136,4 +135,3 @@
   }
 
 }
-module.exports = Api;

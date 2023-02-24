@@ -1,13 +1,13 @@
 import { delatePopup } from "../pages";
 
 export default class Card {
-  constructor({ data, handleCardClick }, cardSelector) {
+  constructor({ data, handleCardClick,handleTrashButton,handleLikeButton}, cardSelector) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
-
-    console.log;
+    this._handleTrashButton = handleTrashButton
+    this._handleLikeButton = handleLikeButton
   }
 
   _getTemplate() {
@@ -17,20 +17,21 @@ export default class Card {
       .cloneNode(true);
     return cardElement;
   }
+//! delete function after submit project
 
-  _toggleHearts() {
-    const heartButton = this._cardElement.querySelector(".card__like-button");
-    heartButton.classList.toggle("card__like-button_on");
-  }
+  // _toggleHearts() {
+  //   const heartButton = this._cardElement.querySelector(".card__like-button");
+  //   heartButton.classList.toggle("card__like-button_on");
+  // }
 
-  _deleteButton() {
-    const trashButton = this._cardElement.querySelector(".card__delete-button");
-    trashButton.closest(".card").remove();
-  }
+  // _deleteButton() {
+  //   const trashButton = this._cardElement.querySelector(".card__delete-button");
+  //   trashButton.closest(".card").remove();
+  // }
   _setEventListeners() {
     this._cardElement
       .querySelector(".card__like-button")
-      .addEventListener("click", () => this._toggleHearts());
+      .addEventListener("click", () => this._handleLikeButton());
     this._cardElement
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
@@ -38,7 +39,7 @@ export default class Card {
         document
           .querySelector(".popup__delate-card-button")
           .addEventListener("click", () => {
-            this._deleteButton();
+            this._handleTrashButton();
             delatePopup.close();
           });
       });
