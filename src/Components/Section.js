@@ -9,7 +9,11 @@ export default class Section {
       this._renderer(item);
     });
   }
-  addItem(item) {
-    this._container.prepend(item);
+  addItem(element) {
+    this._container.prepend(element);
+  }
+
+  addCards(element) {
+    this._container.prepend(element);
   }
 }

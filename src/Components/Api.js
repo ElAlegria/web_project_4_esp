@@ -1,137 +1,111 @@
 export default class Api {
-  constructor(options) {
-    this.options = options;
+  constructor({baseUrl, headers}) {
+    this._baseUrl = baseUrl;
+    this._headers = headers;
   }
-  getUserProfile() {
-    return fetch("https://around.nomoreparties.co/v1/web_es_cohort_04/users/me", {
-      headers: {
-        authorization: "7b89216e-03f6-4244-8235-930eb464c231",
-      },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
-  }
-  getInitialCards() {
-    return fetch("https://around.nomoreparties.co/v1/web_es_cohort_04/cards", {
-      method: "GET",
-      headers: {
-        authorization: "7b89216e-03f6-4244-8235-930eb464c231",
-      },
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
-  }
-  handleEditProfile(value) {
-    return fetch("https://around.nomoreparties.co/v1/web_es_cohort_04/users/me", {
-      method: "PATCH",
-      headers: {
-        authorization: "7b89216e-03f6-4244-8235-930eb464c231",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: `${value.name}`,
-        about: `${value.about}`,
-      }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
 
+  // _returnRes es una función útil para manejar errores y procesar los datos recibidos de las solicitudes de API
+  _returnRes(res) {
+    if (res.ok) {
+      return res.json();
+    } else {
       return Promise.reject(`Error: ${res.status}`);
-    });
+    }
   }
-  handleAddCards(value) {
-    return fetch("https://around.nomoreparties.co/v1/web_es_cohort_04/cards", {
-      method: "POST",
-      headers: {
-        authorization: "7b89216e-03f6-4244-8235-930eb464c231",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: `${value.title}`,
-        link: `${value.link}`,
-      }),
+
+  //getCardList hara una petición para obtener las tarjetas iniciales
+  getCardList() {
+    return fetch(this._baseUrl + '/cards', {
+      method: 'GET',
+      headers: this._headers,
     }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
-  }
-  handleDelateCard(cardId) {
-    return fetch(
-      `https://around.nomoreparties.co/v1/web_es_cohort_04/cards/${cardId}`,
-      {
-        method: "DELETE",
-        headers: {
-          authorization: "7b89216e-03f6-4244-8235-930eb464c231",
-        },
-      }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
-  }
-  handleLikeCard(cardId) {
-    return fetch(
-      `https://around.nomoreparties.co/v1/web_es_cohort_04/cards/likes/${cardId}`,
-      {
-        method: "PUT",
-        headers: {
-          authorization: "7b89216e-03f6-4244-8235-930eb464c231",
-        },
-      }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
-    });
-  }
-  handleUnLikeCard(cardId) {
-    return fetch(
-      `https://around.nomoreparties.co/v1/web_es_cohort_04/cards/likes/${cardId}`,
-      {
-        method: "DELETE",
-        headers: {
-          authorization: "7b89216e-03f6-4244-8235-930eb464c231",
-        },
-      }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
+      return this._returnRes(res);
     });
   }
 
-  handleEditImageProfile(value) {
-    return fetch(
-      "https://around.nomoreparties.co/v1/web_es_cohort_04/users/me/avatar",
-      {
-        method: "PATCH",
-        headers: {
-          authorization: "7b89216e-03f6-4244-8235-930eb464c231",
-          "Content-Type": "application/json",
-        },
-        body:JSON.stringify({
-          avatar:`${value.avatar}`
+  //getUserInfo hara una petición para obtener los datos del usuario actual
+  getUserInfo() {
+    return fetch(this._baseUrl + '/users/me', {
+      method: 'GET',
+      headers: this._headers,
+    }).then((res) => {
+      return this._returnRes(res);
+    });
+  }
+
+  //setUserInfo hara una petición PATCH al endpoint para actualizar los datos del usuario actual con el nombre y descripción especificados.
+  setUserInfo({name, about}) {
+    return (
+      fetch(this._baseUrl + '/users/me', {
+        method: 'PATCH',
+        headers: this._headers,
+        body: JSON.stringify({
+          name,
+          about,
+        }),
+      })
+        .then((res) => {
+          return this._returnRes(res);
         })
-      }
-    ).then((res) => {
-      if (res.ok) {
-        return res.json();
-      }
-      return Promise.reject(`Error: ${res.status}`);
+        //borrar este catch luego xd
+        .catch((err) => console.log(err))
+    );
+  }
+
+  //addCard hara una petición POST al endpoint para crear una nueva tarjeta con el nombre y link especificados.
+  addCard({name, link}) {
+    return fetch(this._baseUrl + '/cards', {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link,
+      }),
+    }).then((res) => {
+      return this._returnRes(res);
     });
   }
 
+  //removeCard hara una petición DELETE al endpoint para eliminar la tarjeta con el id especificado.
+  removeCard(cardId) {
+    return fetch(this._baseUrl + '/cards/' + cardId, {
+      method: 'DELETE',
+      headers: this._headers,
+    }).then((res) => {
+      return this._returnRes(res);
+    });
+  }
+
+  //setUserAvatar hara una petición PATCH al endpoint para actualizar el avatar del usuario actual con el link especificado.
+  setUserAvatar(avatar) {
+    return fetch(this._baseUrl + '/users/me/avatar', {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatar,
+      }),
+    }).then((res) => {
+      return this._returnRes(res);
+    });
+  }
+
+  //addLike hara una petición PUT al endpoint para agregar un like a la tarjeta con el id especificado.
+  addLike(cardId) {
+    return fetch(this._baseUrl + '/cards/likes/' + cardId, {
+      method: 'PUT',
+      headers: this._headers,
+    }).then((res) => {
+      return this._returnRes(res);
+    });
+  }
+
+  //removeLike hara una petición DELETE al endpoint para eliminar el like a la tarjeta con el id especificado.
+  removeLike(cardId) {
+    return fetch(this._baseUrl + '/cards/likes/' + cardId, {
+      method: 'DELETE',
+      headers: this._headers,
+    }).then((res) => {
+      return this._returnRes(res);
+    });
+  }
 }
