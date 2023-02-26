@@ -16,14 +16,14 @@ import {
   editProfileSubmitButton,
   profileImageSubmitButton,
   profileImageOverlay,
-} from '../components/utils.js.js';
-import Card from '../components/Card.js.js';
-import FormValidator from '../components/FormValidator.js.js';
-import PopupWithForm from '../components/PopupWithForm.js.js';
-import PopupDeleteImage from '../components/PopupDeleteImage.js.js';
-import PopupWithImage from '../components/PopupWithImage.js.js';
+} from '../components/utils.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import PopupDeleteImage from '../components/PopupDeleteImage.js';
+import PopupWithImage from '../components/PopupWithImage.js';
 import Section from '../components/Section.js';
-import UserInfo from '../components/UserInfo.js.js';
+import UserInfo from '../components/UserInfo.js';
 import Api from '../components/Api.js';
 
 export const api = new Api({
