@@ -1,4 +1,4 @@
-import Popup from './popup';
+import Popup from './popups';
 
 export default class PopupDeleteImage extends Popup {
   constructor({popupSelector, handleFormSubmit, submitButton}) {

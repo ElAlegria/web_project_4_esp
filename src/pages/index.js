@@ -17,14 +17,14 @@ import {
   profileImageSubmitButton,
   profileImageOverlay,
 } from '../components/utils.js';
-import Card from '../components/card.js';
-import FormValidator from '../components/formValidator.js';
-import PopupWithForm from '../components/PopupWithForm.js';
+import Card from '../components/cards.js';
+import FormValidator from '../components/formValidators.js';
+import PopupWithForm from '../components/PopupWithForms.js';
 import PopupDeleteImage from '../components/popupDeleteImage.js';
-import PopupWithImage from '../components/PopupWithImage.js';
-import Section from '../components/section.js';
-import UserInfo from '../components/userInfo.js';
-import Api from '../components/api.js';
+import PopupWithImage from '../components/PopupWithImages.js';
+import Section from '../components/sections.js';
+import UserInfo from '../components/userInfos.js';
+import Api from '../components/apis.js';
 
 export const api = new Api({
   baseUrl: 'https://around.nomoreparties.co/v1/web_es_cohort_04',
