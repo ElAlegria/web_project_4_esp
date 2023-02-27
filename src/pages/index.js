@@ -20,7 +20,7 @@ import {
 import Card from '../components/cards.js';
 import FormValidator from '../components/formValidators.js';
 import PopupWithForm from '../components/popupWithForm.js';
-import PopupDeleteImage from '../components/popupDeleteImage.js';
+import PopupDeleteImage from '../components/popupDeleteImages.js';
 import PopupWithImage from '../components/popupWithImage.js';
 import Section from '../components/sections.js';
 import UserInfo from '../components/userInfos.js';
