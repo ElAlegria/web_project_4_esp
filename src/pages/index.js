@@ -1,9 +1,7 @@
-import './index.css';
+import "./index.css";
 import {
   selectors,
   openFormProfile,
-//  inputName,
-//  inputOcupation,
   formEdit,
   formImage,
   formProfileImage,
@@ -16,42 +14,47 @@ import {
   editProfileSubmitButton,
   profileImageSubmitButton,
   profileImageOverlay,
-} from '../components/utils.js';
-import Card from '../components/cards.js';
-import FormValidator from '../components/formValidators.js';
-import PopupWithForm from '../components/popupWithForm.js';
-import PopupDeleteImage from '../components/popupDeleteImages.js';
-import PopupWithImage from '../components/popupWithImage.js';
-import Section from '../components/sections.js';
-import UserInfo from '../components/userInfos.js';
-import Api from '../components/apis.js';
+  handleDeleteClick,
+  handleLikRemove,
+  handleLikAdd,
+  api
+} from "../components/utils.js";
+import Card from "../components/cards.js";
+// import FormValidator from '../components/formValidators.js';
+import PopupWithForm from "../components/popupWithForm.js";
+import PopupDeleteImage from "../components/popupDeleteImages.js";
+import PopupWithImage from "../components/popupWithImage.js";
+import Section from "../components/sections.js";
+import UserInfo from "../components/userInfos.js";
+import Api from "../components/Api.js";
+import FormValidator from "../components/formValidators";
 
-export const api = new Api({
-  baseUrl: 'https://around.nomoreparties.co/v1/web_es_cohort_04',
-  headers: {
-    authorization: '7b89216e-03f6-4244-8235-930eb464c231',
-    'Content-Type': 'application/json',
-  },
-});
 
+//! no borrar hasta que quede ajustado el form validator
 const profilePopupValidator = new FormValidator(formEdit, selectors);
 const imagePopupValidator = new FormValidator(formImage, selectors);
-const profileImagePopupValidator = new FormValidator(formProfileImage, selectors);
+const profileImagePopupValidator = new FormValidator(
+  formProfileImage,
+  selectors
+);
 
 profilePopupValidator.enableValidation();
 imagePopupValidator.enableValidation();
 profileImagePopupValidator.enableValidation();
 
-export const previewPopup = new PopupWithImage('.popup_preview_image');
+export const previewPopup = new PopupWithImage(".popup_preview_image");
 previewPopup.setEventListeners();
 
 const editPopup = new PopupWithForm({
-  popupSelector: '.popup_edit_profile',
+  popupSelector: ".popup_edit_profile",
   handleFormSubmit: (data) => {
     api
-      .setUserInfo({name: data.name, about: data.about})
+      .setUserInfo({ name: data.name, about: data.about })
       .then((response) => {
-        profileUser.setUserInfo({username: response.name, userocupation: response.about});
+        profileUser.setUserInfo({
+          username: response.name,
+          userocupation: response.about,
+        });
 
         editPopup.close();
       })
@@ -68,7 +71,7 @@ export const profileUser = new UserInfo({
   userAvatar: profileImage,
 });
 
-openFormProfile.addEventListener('click', () => {
+openFormProfile.addEventListener("click", () => {
   editPopup.open();
   profilePopupValidator.resetValidation();
 });
@@ -76,7 +79,7 @@ openFormProfile.addEventListener('click', () => {
 api
   .getUserInfo()
   .then((res) => {
-    profileUser.setUserInfo({username: res.name, userocupation: res.about});
+    profileUser.setUserInfo({ username: res.name, userocupation: res.about });
     profileUser.setUserAvatar(res.avatar);
     profileUser.userId = res._id;
   })
@@ -92,15 +95,15 @@ api
               cardSection.addCards(cardElement);
             },
           },
-          '.cards__container'
+          ".cards__container"
         );
         cardSection.renderer();
 
         const addCardPopup = new PopupWithForm({
-          popupSelector: '.popup_add_card',
+          popupSelector: ".popup_add_card",
           handleFormSubmit: (data) => {
             api
-              .addCard({name: data.title, link: data['image-link']})
+              .addCard({ name: data.title, link: data["image-link"] })
               .then((data) => {
                 const newCardElement = createCard(data);
                 cardSection.addItem(newCardElement);
@@ -113,7 +116,7 @@ api
 
         addCardPopup.setEventListeners();
 
-        openCardButton.addEventListener('click', () => {
+        openCardButton.addEventListener("click", () => {
           addCardPopup.open();
           imagePopupValidator.resetValidation();
         });
@@ -123,9 +126,9 @@ api
   .catch((err) => console.log(err));
 
 const profileImagePopup = new PopupWithForm({
-  popupSelector: '.popup_image_profile',
+  popupSelector: ".popup_image_profile",
   handleFormSubmit: (data) => {
-    const avatar = data['image-link'];
+    const avatar = data["image-link"];
     api
       .setUserAvatar(avatar)
       .then(() => {
@@ -139,13 +142,13 @@ const profileImagePopup = new PopupWithForm({
 
 profileImagePopup.setEventListeners();
 
-profileImageOverlay.addEventListener('click', () => {
+profileImageOverlay.addEventListener("click", () => {
   profileImagePopup.open();
   profileImagePopupValidator.resetValidation();
 });
 
-export const deleteCardPopup = new PopupDeleteImage({
-  popupSelector: '.popup_delete_card',
+const deleteCardPopup = new PopupDeleteImage({
+  popupSelector: ".popup_delete_card",
   submitButton: deleteCardSubmitButton,
 });
 
@@ -155,43 +158,25 @@ function createCard(data) {
   const newCard = new Card(
     {
       data,
-      handleCardClick: ({name, link}) => {
-        previewPopup.open({name, link});
+      handleCardClick: ({ name, link }) => {
+        previewPopup.open({ name, link });
       },
       handleDeleteClick: ({id}) => {
-        deleteCardPopup.open();
-        deleteCardPopup.setSubmitAction(() => {
-          api
-            .removeCard(id)
-            .then(() => {
-              deleteCardPopup.close();
-              newCard._deleteButton();
-            })
-            .catch((err) => console.log(err));
-        });
+        handleDeleteClick(id, newCard,deleteCardPopup);
+        deleteCardPopup
       },
       handleLikeAdd: ({id}) => {
-        api
-          .addLike(id)
-          .then((res) => {
-            newCard.updateLikes(res.likes);
-            newCard.addHeart();
-          })
-          .catch((err) => console.log(err));
+        handleLikAdd(id,newCard);
       },
-      handleLikeDelete: ({id}) => {
-        api
-          .removeLike(id)
-          .then((res) => {
-            newCard.updateLikes(res.likes);
-            newCard.removeHeart();
-          })
-          .catch((err) => console.log(err));
+      handleLikeDelete: ({ id }) => {
+       handleLikRemove(id,newCard)
       },
       userId: profileUser.userId,
     },
-    '.card-template'
+    ".card-template"
   );
   return newCard.generateCard();
 }
+
+
 
