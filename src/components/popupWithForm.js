@@ -11,7 +11,7 @@ export default class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    this.renderLoading(false);
+    this._renderLoading(false);
     this._formElement.reset();
   }
 
@@ -23,7 +23,7 @@ export default class PopupWithForm extends Popup {
     return this._formValues;
   }
 
-  renderLoading(isLoading) {
+  _renderLoading(isLoading) {
     if (isLoading) {
       this._submitButton.textContent = 'Guardando...';
     } else {
@@ -35,7 +35,7 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners();
     this._formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this.renderLoading(true);
+      this._renderLoading(true);
       this._handleFormSubmit(this._getInputValues());
     });
   }
